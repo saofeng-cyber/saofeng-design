@@ -1,0 +1,12 @@
+{
+  /** 自动保存格式化 */
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
+  },
+  /** 默认prettier代码格式化 */
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "cSpell.words": ["unplugin"],
+  "typescript.tsdk": "node_modules\\typescript\\lib"
+}

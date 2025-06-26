@@ -1,0 +1,33 @@
+{
+  "name": "@saofeng-design/components",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "typings/index.d.ts",
+  "scripts": {
+    "build": "vite build -c ./build/sf.config.ts"
+  },
+  "files": [
+    "dist",
+    "es",
+    "lib",
+    "typings",
+    "package.json",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    },
+    "./dist/index.css": "./dist/index.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gradient-string": "^3.0.0"
+  }
+}
