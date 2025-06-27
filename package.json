@@ -13,7 +13,6 @@
   "dependencies": {
     "@saofeng-design/components": "workspace:*",
     "@saofeng-design/eslint-config": "workspace:*",
-    "@saofeng-design/hooks": "workspace:*",
     "@saofeng-design/prettier-config": "workspace:*",
     "@saofeng-design/utils": "workspace:*",
     "vue": "^3.5.17"
