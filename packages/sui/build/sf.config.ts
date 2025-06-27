@@ -18,13 +18,43 @@ export default defineConfig({
       external: ["vue"],
       output: [
         {
-          format: "es",
-          banner: "#!/usr/bin/env node",
+          format: "umd",
+          dir: "dist",
+          name: "sf-ui",
+          exports: "named",
+          inlineDynamicImports: false,
+          entryFileNames: "index.umd.js",
+          chunkFileNames: "[name].js",
+          assetFileNames: "style.css",
           manualChunks: undefined,
+          globals: {
+            vue: "Vue",
+          },
+        },
+        {
+          format: "cjs",
+          dir: "lib",
+          exports: "named",
+          chunkFileNames: undefined,
+          entryFileNames: "[name].js",
+          assetFileNames: "[name].[ext]",
+          preserveModules: true, // 保留模块结构
+          preserveModulesRoot: ".", // 保留模块根目录
+          inlineDynamicImports: false,
+          globals: {
+            vue: "Vue",
+          },
+        },
+        {
+          format: "es",
+          manualChunks: undefined,
+          exports: "named",
           dir: "es",
           preserveModules: true, // 保留模块结构
-          chunkFileNames: "[name].js",
+          preserveModulesRoot: ".", // 保留模块根目录
           entryFileNames: "[name].js",
+          chunkFileNames: undefined,
+          inlineDynamicImports: false, // 将动态导入的模块内联到导入它们的模块中
           assetFileNames: "[name].[ext]",
           globals: {
             vue: "Vue",
@@ -42,7 +72,7 @@ export default defineConfig({
     vue(),
     dts({
       include: ["index.ts"],
-      outDir: ["es"],
+      outDir: ["typings"],
     }),
     SfRollupPlugin(),
   ],

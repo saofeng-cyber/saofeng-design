@@ -1,10 +1,8 @@
 import { createApp } from "vue";
 import "./style.css";
 import App from "./App.vue";
-import "@saofeng-design/components/dist/index.css";
-import Sui from "@saofeng-design/components";
+// import "@saofeng-design/components/dist/style.css";
 
 const app = createApp(App);
-app.use(Sui);
 
 app.mount("#app");

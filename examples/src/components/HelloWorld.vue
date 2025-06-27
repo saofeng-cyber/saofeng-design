@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import { SButton } from "@saofeng-design/components";
+import { SButton } from "@saofeng-design/sui";
 
-defineProps<{ msg: string }>();
+defineProps<{ text: string }>();
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
-
-  <s-button text="Hello World" />
+  <s-button :text="text" />
 </template>
 
 <style scoped>

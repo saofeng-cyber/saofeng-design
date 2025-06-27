@@ -25,7 +25,7 @@
     "baseUrl": ".",
     "types": ["node", "vite/client"],
     "paths": {
-      "@saofeng-design/components": ["packages/components"]
+      "@saofeng-design/sui": ["packages/sui"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },

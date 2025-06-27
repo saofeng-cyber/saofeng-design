@@ -1,8 +1,8 @@
 import type { App } from "vue";
-import SButton from "./Button";
-import SAlert from "./Alert";
+import SButton from "./components/Button";
+import SAlert from "./components/Alert";
 
-import * as components from "./components"; // 导入所有组件
+import * as components from "./components/index"; // 导入所有组件
 
 export { SButton, SAlert };
 

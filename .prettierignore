@@ -1,0 +1,15 @@
+#docs
+docs/.vitepress/cache/
+
+/dist/*
+.local
+.output.js
+/node_modules/**
+
+**/*.svg
+**/*.png
+**/*.jpg
+**/*.jpeg
+**/*.sh
+
+/public/*
