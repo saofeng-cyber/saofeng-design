@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SButton } from "@saofeng-design/sui";
+import { SButton } from '@saofeng-design/sui';
 
 defineProps<{ text: string }>();
 </script>

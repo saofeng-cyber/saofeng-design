@@ -1,4 +1,4 @@
-import type { App, Plugin } from "vue";
+import type { App, Plugin } from 'vue';
 
 // 组件基本类型约束，确保组件至少有name属性
 export interface ComponentType {

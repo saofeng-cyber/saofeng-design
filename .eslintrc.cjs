@@ -1,4 +1,4 @@
 module.exports = {
   root: true,
-  extends: ["@saofeng-design/eslint-config"],
+  extends: ['@saofeng-design/eslint-config'],
 };

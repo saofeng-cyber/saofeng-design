@@ -1,17 +1,20 @@
 <template>
-  <button class="button">{{ text }}</button>
+  <button :class="ns">{{ text }}</button>
 </template>
 <script setup lang="ts">
+import { useNameSpace } from '@saofeng-design/hooks';
 defineProps({
   text: {
     type: String,
-    default: "",
+    default: '',
   },
   type: {
     type: String,
-    default: "",
+    default: '',
   },
 });
+const ns = useNameSpace('button');
+console.log(ns);
 </script>
 <style lang="less" scoped>
 button {

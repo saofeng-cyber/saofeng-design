@@ -1,3 +1,3 @@
-import { withInstall } from "./src/withInstall";
+import { withInstall } from './src/withInstall';
 
 export { withInstall };
