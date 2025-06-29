@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import { resolve } from 'path';
+import { fileURLToPath } from 'node:url';
 import dts from 'vite-plugin-dts';
 import SfRollupPlugin from './plugin';
 import {
@@ -122,13 +122,13 @@ export default defineConfig({
 
       // 输入配置
       input: {
-        index: resolve(__dirname, '../index.ts'),
+        index: '../index.ts',
       },
     },
 
     // 库配置
     lib: {
-      entry: resolve(__dirname, '../index.ts'),
+      entry: '../index.ts',
       name: 'SfUI',
       formats: ['umd', 'cjs', 'es'],
     },
@@ -177,8 +177,8 @@ export default defineConfig({
   // 解析配置
   resolve: {
     alias: {
-      '@': resolve(__dirname, '../'),
-      '~': resolve(__dirname, '../components'),
+      '@': fileURLToPath(new URL('../', import.meta.url)),
+      '~': fileURLToPath(new URL('../components', import.meta.url)),
     },
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.vue', '.json'],
   },
