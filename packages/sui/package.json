@@ -7,8 +7,11 @@
   "module": "es/index.js",
   "types": "typings/index.d.ts",
   "scripts": {
-    "build": "vite build -c ./build/sf.config.js",
-    "build:style": "lessc styles/index.less dist/style.css --compress"
+    "build": "node scripts/build.js prod",
+    "build:dev": "node scripts/build.js dev",
+    "build:watch": "node scripts/build.js watch",
+    "build:style": "lessc styles/index.less dist/style.css --compress",
+    "clean": "rimraf dist lib es typings"
   },
   "files": [
     "dist",
@@ -21,9 +24,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@saofeng-design/theme": "workspace:*"
-  },
   "devDependencies": {
     "gradient-string": "^3.0.0"
   }

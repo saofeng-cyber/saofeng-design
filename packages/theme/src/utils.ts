@@ -212,7 +212,7 @@ export const themeUtils = {
    * @returns 合并后的对象
    */
   deepMerge<T extends Record<string, any>>(target: T, source: Partial<T>): T {
-    const result = { ...target };
+    const result = { ...target } as Record<string, any>;
 
     Object.keys(source).forEach((key) => {
       const sourceValue = source[key];
@@ -232,7 +232,7 @@ export const themeUtils = {
       }
     });
 
-    return result;
+    return result as T;
   },
 
   /**
