@@ -7,7 +7,7 @@
     "jsxFactory": "h",
     "jsxImportSource": "vue",
     "importHelpers": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "isolatedModules": true,
     "strictFunctionTypes": false,
     "noImplicitAny": false,
@@ -25,7 +25,8 @@
     "types": ["node", "vite/client"],
     "removeComments": true,
     "paths": {
-      "@saofeng-design/sui": ["packages/sui"]
+      "@saofeng-design/sui": ["packages/sui"],
+      "@saofeng-design/theme":["packages/theme"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },

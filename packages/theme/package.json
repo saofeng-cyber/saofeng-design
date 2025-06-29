@@ -1,0 +1,32 @@
+{
+  "name": "@saofeng-design/theme",
+  "version": "1.0.0",
+  "description": "Saofeng Design 主题样式系统",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "package.json",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "build:style": "lessc src/index.less dist/index.css --compress",
+    "build:style-dev": "lessc src/index.less dist/index.css",
+    "dev": "unbuild --stub",
+    "prepublishOnly": "pnpm build && pnpm build:style"
+  },
+  "keywords": [
+    "saofeng-design",
+    "theme",
+    "css",
+    "less",
+    "design-tokens",
+    "design-system"
+  ],
+  "author": "",
+  "license": "ISC"
+}

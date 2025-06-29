@@ -20,6 +20,7 @@
     "@saofeng-design/eslint-config": "workspace:*",
     "@saofeng-design/hooks": "workspace:*",
     "@saofeng-design/prettier-config": "workspace:*",
+    "@saofeng-design/theme": "workspace:*",
     "@saofeng-design/utils": "workspace:*",
     "vue": "^3.5.17"
   },

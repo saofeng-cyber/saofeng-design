@@ -5,4 +5,4 @@ const SButton = withInstall(MyButton);
 
 export default SButton;
 
-export type { SButtonInstance } from './src/instance';
+export * from './src/instance';

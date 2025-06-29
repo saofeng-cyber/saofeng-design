@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@saofeng-design/components": "workspace:*"
+    "@saofeng-design/components": "workspace:*",
+    "@saofeng-design/theme": "workspace:*"
   }
 }

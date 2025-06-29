@@ -8,6 +8,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@saofeng-design/sui': fileURLToPath(new URL('../packages/sui', import.meta.url)),
+      '@saofeng-design/theme': fileURLToPath(new URL('../packages/theme', import.meta.url)),
     },
   },
   server: {

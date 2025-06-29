@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue';
+import MyButton from './components/MyButton.vue';
 </script>
 
 <template>
-  <HelloWorld text="Vite + Vue" />
+  <MyButton text="Vite + Vue" />
 </template>
