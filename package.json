@@ -9,7 +9,8 @@
     "demo:dev": "pnpm --dir ./examples dev",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx",
     "lint:fix": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "lint:lint-staged": "lint-staged"
   },
   "keywords": [],
   "author": "",
