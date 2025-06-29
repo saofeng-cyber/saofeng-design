@@ -12,7 +12,3 @@ dist
 .local
 /bin
 Dockerfile
-
-.eslintrc.cjs
-prettier.config.js
-stylelint.config.js

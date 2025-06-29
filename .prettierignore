@@ -1,15 +1,29 @@
-#docs
-docs/.vitepress/cache/
+# 编辑器配置
+.vscode/
+.idea/
 
+# 构建输出
 /dist/*
+/examples/dist/
+/examples/.vite/
+
+# 依赖和缓存
+/node_modules/**
 .local
 .output.js
-/node_modules/**
 
+# 媒体文件
 **/*.svg
 **/*.png
 **/*.jpg
 **/*.jpeg
-**/*.sh
 
+# 脚本和日志
+**/*.sh
+*.log
+
+# 系统文件
+.DS_Store
+
+# 公共资源
 /public/*

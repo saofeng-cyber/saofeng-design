@@ -12,4 +12,4 @@ export default {
       app.component(name, component);
     });
   },
-};
+}
