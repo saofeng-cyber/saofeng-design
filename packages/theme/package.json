@@ -13,10 +13,9 @@
     "README.md"
   ],
   "scripts": {
-    "build": "unbuild",
-    "build:style": "lessc src/index.less dist/index.css --compress",
-    "build:style-dev": "lessc src/index.less dist/index.css",
-    "dev": "unbuild --stub",
+    "build": "unbuild --stub",
+    "build:style": "lessc src/index.less dist/index.css",
+    "minify-css": "cssnano dist/index.css dist/index.mini.css",
     "prepublishOnly": "pnpm build && pnpm build:style"
   },
   "keywords": [
@@ -28,5 +27,8 @@
     "design-system"
   ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "postcss-cli": "^11.0.1"
+  }
 }

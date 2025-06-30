@@ -20,6 +20,7 @@
     "@saofeng-design/eslint-config": "workspace:*",
     "@saofeng-design/hooks": "workspace:*",
     "@saofeng-design/prettier-config": "workspace:*",
+    "@saofeng-design/plugins": "workspace:*",
     "@saofeng-design/theme": "workspace:*",
     "@saofeng-design/utils": "workspace:*",
     "vue": "^3.5.17"
@@ -32,6 +33,7 @@
     "@vitejs/plugin-vue-jsx": "^5.0.0",
     "@vue/eslint-config-typescript": "12.0.0",
     "@vue/tsconfig": "^0.7.0",
+    "cssnano-cli": "^1.0.5",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "^2.32.0",
@@ -39,6 +41,7 @@
     "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-promise": "^7.2.1",
     "eslint-plugin-vue": "^9.23.0",
+    "gradient-string": "^3.0.0",
     "husky": "^9.1.7",
     "less": "^4.3.0",
     "lessc": "^1.0.2",

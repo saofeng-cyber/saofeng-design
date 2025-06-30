@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { fileURLToPath } from 'node:url';
 import dts from 'vite-plugin-dts';
-import SfRollupPlugin from './plugin';
+import { SfRollupPlugin } from '@saofeng-design/plugins';
 import {
   EXTERNAL_DEPENDENCIES,
   GLOBAL_VARIABLES,
