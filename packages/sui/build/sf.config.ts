@@ -5,7 +5,6 @@ import dts from 'vite-plugin-dts';
 import { SfRollupPlugin } from '@saofeng-design/plugins';
 import {
   EXTERNAL_DEPENDENCIES,
-  GLOBAL_VARIABLES,
   BUILD_TARGETS,
   OUTPUT_DIRS,
   FILE_PATTERNS,
@@ -20,39 +19,23 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 // 输出配置类型定义
 interface OutputConfig {
-  format: 'umd' | 'cjs' | 'es';
+  format: 'cjs' | 'es';
   dir: string;
   exports: 'named';
-  globals: Record<string, string>;
   entryFileNames?: string;
   chunkFileNames?: string;
   assetFileNames?: string;
-  name?: string;
   preserveModules?: boolean;
   preserveModulesRoot?: string;
-  inlineDynamicImports?: boolean;
 }
 
 // 通用的输出配置
 const createOutputConfig = (format: BuildFormat): OutputConfig => {
   const baseConfig = {
     exports: 'named' as const,
-    globals: GLOBAL_VARIABLES,
   };
 
   switch (format) {
-    case 'umd':
-      return {
-        ...baseConfig,
-        format: 'umd' as const,
-        dir: OUTPUT_DIRS.umd,
-        name: 'SfUI',
-        entryFileNames: FILE_PATTERNS.entry.umd,
-        chunkFileNames: FILE_PATTERNS.chunk.umd,
-        assetFileNames: FILE_PATTERNS.asset.umd,
-        inlineDynamicImports: true, // UMD 格式内联动态导入
-      };
-
     case 'cjs':
       return {
         ...baseConfig,
@@ -115,22 +98,22 @@ export default defineConfig({
       },
 
       // 输出配置
-      output: [createOutputConfig('umd'), createOutputConfig('cjs'), createOutputConfig('es')],
+      output: [createOutputConfig('cjs'), createOutputConfig('es')],
 
       // 优化配置
       treeshake: BUILD_OPTIMIZATION.treeshake,
 
       // 输入配置
       input: {
-        index: '../index.ts',
+        index: fileURLToPath(new URL('../index.ts', import.meta.url)),
       },
     },
 
     // 库配置
     lib: {
-      entry: '../index.ts',
+      entry: fileURLToPath(new URL('../index.ts', import.meta.url)),
       name: 'SfUI',
-      formats: ['umd', 'cjs', 'es'],
+      formats: ['cjs', 'es'],
     },
 
     // 源码映射配置 - 根据环境选择

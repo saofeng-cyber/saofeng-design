@@ -6,8 +6,13 @@
  */
 
 import { execSync } from 'child_process';
-import { resolve, join } from 'path';
+import { resolve, join, dirname } from 'path';
 import { existsSync, rmSync, readdirSync, statSync } from 'fs';
+import { fileURLToPath } from 'url';
+
+// ES 模块中获取 __dirname 的替代方案
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // 构建配置
 const BUILD_MODES = {

@@ -15,7 +15,7 @@
   "scripts": {
     "build": "unbuild --stub",
     "build:style": "lessc src/index.less dist/index.css",
-    "minify-css": "cssnano dist/index.css dist/index.mini.css",
+    "minify-css": "cssnano -c cssnano.config.ts dist/index.css dist/index.mini.css",
     "prepublishOnly": "pnpm build && pnpm build:style"
   },
   "keywords": [
