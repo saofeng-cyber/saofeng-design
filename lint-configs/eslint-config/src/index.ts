@@ -8,58 +8,74 @@ module.exports = {
   extends: [
     'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier',
-    'plugin:prettier/recommended',
+    'prettier', // 必须放在最后，用于关闭与Prettier冲突的规则
   ],
   parserOptions: {
-    ecmaVersion: '2020',
+    ecmaVersion: 'latest',
     sourceType: 'module',
-    project: './tsconfig.*?.json',
     parser: '@typescript-eslint/parser',
     ecmaFeatures: { jsx: true },
   },
-  plugins: ['vue', '@typescript-eslint', 'import', 'promise', 'node', 'prettier'],
+  plugins: ['vue', '@typescript-eslint', 'import'],
   rules: {
-    'prettier/prettier': ['error'],
-    // 关闭空方法校验
+    // ===== TypeScript 规则 =====
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+      },
+    ],
+    '@typescript-eslint/no-explicit-any': 'warn',
     '@typescript-eslint/no-empty-function': 'off',
-    // 关闭类型限制不允许使用any
-    '@typescript-eslint/no-explicit-any': 'off',
-    // 启用没有使用变量校验
-    '@typescript-eslint/no-unused-vars': 'error',
-    // 关闭不允许复制this给变量校验
     '@typescript-eslint/no-this-alias': 'off',
-    // 关闭不允许使用ts的关闭校验忽略等
-    '@typescript-eslint/ban-ts-comment': 'off',
-    // 关闭要求组件名称始终为多个单词
+    '@typescript-eslint/ban-ts-comment': 'warn',
+
+    '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'warn',
+
+    // ===== Vue 规则 =====
+    // 组件命名
     'vue/multi-word-component-names': 'off',
-    // 关闭强制执行有效的defineProps编译器宏
-    'vue/valid-define-props': 'off',
-    // 关闭禁止在自定义组件中使用带有参数的v-model
-    'vue/no-v-model-argument': 'off',
-    // 关闭禁止使用 v-html
-    'vue/no-v-html': 'off',
-    // 关闭模板中注解的校验
-    'vue/comment-directive': 'off',
-    // 关闭标记arguments变量提示通知
-    'prefer-rest-params': 'off',
-    // 把Prettier的规则设为错误级别
-    // 开启圈复杂度检查, 最大圈复杂度为5
-    complexity: ['warn', { max: 10 }],
-    // 其他规范检查
-    'vue/script-setup-uses-vars': 'error',
-    'vue/no-reserved-component-names': 'off',
-    'vue/custom-event-name-casing': 'off',
-    'vue/attributes-order': 'off',
-    'vue/one-component-per-file': 'off',
-    'vue/html-closing-bracket-newline': 'off',
+    'vue/component-name-in-template-casing': ['error', 'kebab-case'],
+
+    // 属性和事件
+    'vue/prop-name-casing': ['error', 'camelCase'],
+    'vue/custom-event-name-casing': ['error', 'camelCase'],
+    'vue/v-on-event-hyphenation': ['error', 'always'],
+
+    // 模板格式化 - 让Prettier处理
+    'vue/html-indent': 'off',
     'vue/max-attributes-per-line': 'off',
+    'vue/first-attribute-linebreak': 'off',
+    'vue/html-closing-bracket-newline': 'off',
     'vue/multiline-html-element-content-newline': 'off',
     'vue/singleline-html-element-content-newline': 'off',
     'vue/attribute-hyphenation': 'off',
-    'vue/require-default-prop': 'off',
-    'vue/require-explicit-emits': 'off',
-    'vue/no-parsing-error': 'off',
+
+    // 属性顺序 - 保持美观的属性排列
+    'vue/attributes-order': [
+      'error',
+      {
+        order: [
+          'DEFINITION',
+          'LIST_RENDERING',
+          'CONDITIONALS',
+          'RENDER_MODIFIERS',
+          'GLOBAL',
+          'UNIQUE',
+          'TWO_WAY_BINDING',
+          'OTHER_DIRECTIVES',
+          'OTHER_ATTR',
+          'EVENTS',
+          'CONTENT',
+        ],
+      },
+    ],
+
+    // 自闭合标签
     'vue/html-self-closing': [
       'error',
       {
@@ -72,18 +88,53 @@ module.exports = {
         math: 'always',
       },
     ],
-    '@typescript-eslint/ban-ts-ignore': 'off',
-    '@typescript-eslint/ban-types': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/no-var-requires': 'off',
-    '@typescript-eslint/no-use-before-define': 'off',
-    '@typescript-eslint/no-non-null-assertion': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
+
+    // Vue 3 特定
+    'vue/script-setup-uses-vars': 'error',
+    'vue/no-reserved-component-names': 'off',
+    'vue/require-default-prop': 'off',
+    'vue/require-explicit-emits': 'warn',
+    'vue/no-v-html': 'warn',
+    'vue/no-v-model-argument': 'off',
+
+    // ===== 通用 JavaScript/TypeScript 规则 =====
+    // 代码质量
+    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-unused-vars': 'off', // 使用 TypeScript 版本
+    'prefer-const': 'error',
+    'no-var': 'error',
+
+    // 代码复杂度
+    complexity: ['warn', { max: 15 }],
+    'max-depth': ['warn', 4],
+    'max-lines-per-function': ['warn', { max: 100 }],
+
+    // Import 规则
+    'import/order': [
+      'error',
+      {
+        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+        'newlines-between': 'always',
+        alphabetize: { order: 'asc' },
+      },
+    ],
+    'import/no-duplicates': 'error',
+
+    // 代码风格 - 让Prettier处理大部分
+    quotes: 'off',
+    semi: 'off',
+    indent: 'off',
+    'comma-dangle': 'off',
   },
   globals: {
+    // Vue 3 全局
+    defineProps: 'readonly',
+    defineEmits: 'readonly',
+    defineExpose: 'readonly',
+    withDefaults: 'readonly',
+    // 自定义全局类型
     DialogOption: 'readonly',
     OptionType: 'readonly',
-    defineEmits: 'readonly',
-    defineProps: 'readonly',
   },
 };

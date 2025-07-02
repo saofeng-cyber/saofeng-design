@@ -145,7 +145,7 @@ export const sizeUtils = {
    */
   generateResponsiveSizes(
     sizes: Record<string, string>,
-    breakpoints: Record<string, string>,
+    breakpoints: Record<string, string>
   ): string {
     const queries: string[] = [];
 
@@ -175,10 +175,10 @@ export const animationUtils = {
     properties: string | string[],
     duration: string = '0.3s',
     easing: string = 'ease',
-    delay: string = '0s',
+    delay: string = '0s'
   ): string {
     const props = Array.isArray(properties) ? properties : [properties];
-    return props.map((prop) => `${prop} ${duration} ${easing} ${delay}`).join(', ');
+    return props.map(prop => `${prop} ${duration} ${easing} ${delay}`).join(', ');
   },
 
   /**
@@ -214,7 +214,7 @@ export const themeUtils = {
   deepMerge<T extends Record<string, any>>(target: T, source: Partial<T>): T {
     const result = { ...target } as Record<string, any>;
 
-    Object.keys(source).forEach((key) => {
+    Object.keys(source).forEach(key => {
       const sourceValue = source[key];
       const targetValue = result[key];
 
@@ -249,7 +249,7 @@ export const themeUtils = {
         if (typeof value === 'string') {
           const isValidHex = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(value);
           const isValidRgba = /^rgba?\(\s*\d+\s*,\s*\d+\s*,\s*\d+\s*(,\s*[\d.]+)?\s*\)$/.test(
-            value,
+            value
           );
 
           if (!isValidHex && !isValidRgba) {

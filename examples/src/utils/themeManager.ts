@@ -89,7 +89,7 @@ class ThemeManagerImpl implements ThemeManager {
     window.dispatchEvent(
       new CustomEvent('theme-changed', {
         detail: { theme: this.currentTheme, tokens },
-      }),
+      })
     );
   }
 

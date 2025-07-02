@@ -8,7 +8,7 @@
     "dist"
   ],
   "scripts": {
-    "stub": "pnpm unbuild --stub"
+    "stub": "pnpm unbuild"
   },
   "keywords": [],
   "author": "",

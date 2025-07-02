@@ -9,7 +9,7 @@ interface VitePlugin {
 }
 
 const welcomeMessage = gradient(['cyan', 'magenta']).multiline(
-  `🚀 欢迎使用【骚风】前端框架，如果有问题请及时交流 🚀`,
+  `🚀 欢迎使用【骚风】前端框架，如果有问题请及时交流 🚀`
 );
 
 const endMessage = gradient(['cyan', 'magenta']).multiline(`🎉 恭喜系统构建成功！！！ 🚀`);

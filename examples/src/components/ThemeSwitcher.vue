@@ -9,7 +9,10 @@
     />
 
     <!-- 主题信息显示 -->
-    <div v-if="showInfo" class="theme-info">
+    <div
+      v-if="showInfo"
+      class="theme-info"
+    >
       <div class="theme-info-item">
         <span class="label">当前主题:</span>
         <span class="value">{{ isDark ? '暗色模式' : '亮色模式' }}</span>
@@ -24,6 +27,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue';
+
 import { themeManager } from '../utils/themeManager';
 
 interface Props {

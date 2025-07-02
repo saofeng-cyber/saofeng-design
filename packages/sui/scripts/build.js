@@ -6,8 +6,8 @@
  */
 
 import { execSync } from 'child_process';
-import { resolve, join, dirname } from 'path';
 import { existsSync, rmSync, readdirSync, statSync } from 'fs';
+import { resolve, join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 // ES 模块中获取 __dirname 的替代方案
@@ -59,7 +59,7 @@ if (config.watch) {
 // 清理输出目录
 const outputDirs = ['dist', 'lib', 'es', 'typings'];
 console.log('🧹 清理输出目录...');
-outputDirs.forEach((dir) => {
+outputDirs.forEach(dir => {
   const dirPath = resolve(__dirname, '..', dir);
   if (existsSync(dirPath)) {
     rmSync(dirPath, { recursive: true, force: true });
@@ -85,11 +85,11 @@ try {
 
     // 显示输出文件信息
     console.log('📁 输出文件:');
-    outputDirs.forEach((dir) => {
+    outputDirs.forEach(dir => {
       const dirPath = resolve(__dirname, '..', dir);
       if (existsSync(dirPath)) {
         const files = readdirSync(dirPath, { recursive: true });
-        files.forEach((file) => {
+        files.forEach(file => {
           const filePath = join(dirPath, file);
           const stats = statSync(filePath);
           if (stats.isFile()) {

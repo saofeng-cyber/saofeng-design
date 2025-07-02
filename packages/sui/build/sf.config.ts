@@ -1,8 +1,10 @@
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
 import { fileURLToPath } from 'node:url';
-import dts from 'vite-plugin-dts';
+
 import { SfRollupPlugin } from '@saofeng-design/plugins';
+import vue from '@vitejs/plugin-vue';
+import { defineConfig } from 'vite';
+import dts from 'vite-plugin-dts';
+
 import {
   EXTERNAL_DEPENDENCIES,
   BUILD_TARGETS,
@@ -94,7 +96,7 @@ export default defineConfig({
       // 外部依赖
       external: (id: string) => {
         // 更灵活的外部依赖判断
-        return EXTERNAL_DEPENDENCIES.some((dep) => id === dep || id.startsWith(`${dep}/`));
+        return EXTERNAL_DEPENDENCIES.some(dep => id === dep || id.startsWith(`${dep}/`));
       },
 
       // 输出配置

@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 
 - 🎨 完整的设计令牌系统
+
   - 颜色系统（主色调、功能色、中性色）
   - 字体系统（字体族、大小、粗细）
   - 尺寸系统（间距、高度、圆角）
@@ -15,32 +16,38 @@ All notable changes to this project will be documented in this file.
   - 屏幕断点系统
 
 - 🌙 暗色模式支持
+
   - 内置暗色主题配置
   - 自动颜色反转
   - 主题切换工具
 
 - 🛠 丰富的工具类
+
   - 间距工具类（margin、padding）
   - 文本工具类（对齐、颜色、大小）
   - 布局工具类（display、flexbox）
   - 响应式工具类
 
 - 📱 响应式设计
+
   - 内置断点系统
   - 响应式工具函数
   - 媒体查询生成器
 
 - 🎯 TypeScript 支持
+
   - 完整的类型定义
   - 类型安全的主题配置
   - 智能提示支持
 
 - 🔧 主题定制
+
   - 灵活的主题配置
   - CSS 变量生成
   - 主题验证工具
 
 - 🎨 组件特定令牌
+
   - Button 组件令牌
   - Input 组件令牌
   - Card 组件令牌

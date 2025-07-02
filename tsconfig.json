@@ -26,7 +26,7 @@
     "removeComments": true,
     "paths": {
       "@saofeng-design/sui": ["packages/sui"],
-      "@saofeng-design/theme":["packages/theme"]
+      "@saofeng-design/theme": ["packages/theme"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
