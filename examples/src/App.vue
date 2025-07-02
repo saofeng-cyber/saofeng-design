@@ -1,17 +1,11 @@
 <script setup lang="ts">
-import MyButton from './components/MyButton.vue';
-import ThemeSwitcher from './components/ThemeSwitcher.vue';
+// 使用路由视图，不需要导入具体组件
 </script>
 
 <template>
   <div class="app-container">
-    <!-- 主题切换器 -->
-    <div class="theme-switcher-container">
-      <ThemeSwitcher :show-info="true" />
-    </div>
-
-    <!-- 主要内容 -->
-    <MyButton text="Vite + Vue" />
+    <!-- 路由视图 -->
+    <router-view />
   </div>
 </template>
 
@@ -21,12 +15,5 @@ import ThemeSwitcher from './components/ThemeSwitcher.vue';
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
-}
-
-.theme-switcher-container {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
 }
 </style>
