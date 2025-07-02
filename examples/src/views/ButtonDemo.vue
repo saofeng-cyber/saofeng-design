@@ -1,18 +1,10 @@
 <template>
   <div class="demo-container">
     <!-- 导航栏 -->
-    <nav class="demo-nav">
-      <button
-        class="back-btn"
-        @click="goBack"
-      >
-        ← 返回首页
-      </button>
-      <h1 class="demo-title">Button 按钮</h1>
-      <div class="theme-switcher">
-        <theme-switcher :show-info="false" />
-      </div>
-    </nav>
+    <demo-navigation
+      title="Button 按钮"
+      subtitle="按钮用于触发一个操作，如提交表单、打开对话框、取消操作等。"
+    />
 
     <!-- 内容区域 -->
     <main class="demo-content">
@@ -186,16 +178,11 @@
 <script setup lang="ts">
 import { SButton } from '@saofeng-design/sui';
 import { ref } from 'vue';
-import { useRouter } from 'vue-router';
 
-import ThemeSwitcher from '../components/ThemeSwitcher.vue';
+import DemoNavigation from '../components/DemoNavigation.vue';
+import '../styles/demo-common.css';
 
-const router = useRouter();
 const message = ref('');
-
-const goBack = () => {
-  router.push('/');
-};
 
 const showMessage = (text: string) => {
   message.value = `您点击了：${text}`;
@@ -210,127 +197,7 @@ const handleLoadingClick = () => {
 </script>
 
 <style scoped>
-.demo-container {
-  min-height: 100vh;
-  background: #f8f9fa;
-  transition: all 0.3s ease;
-}
-
-.demo-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 24px;
-  background: white;
-  border-bottom: 1px solid #e9ecef;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.back-btn {
-  background: none;
-  border: none;
-  color: #667eea;
-  cursor: pointer;
-  font-size: 14px;
-  padding: 8px 12px;
-  border-radius: 6px;
-  transition: all 0.2s ease;
-}
-
-.back-btn:hover {
-  background: #f8f9ff;
-  color: #5a67d8;
-}
-
-.demo-title {
-  margin: 0;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #333;
-}
-
-.demo-content {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 32px 24px;
-}
-
-.demo-section {
-  margin-bottom: 48px;
-  background: white;
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
-
-.section-header h2 {
-  margin: 0 0 8px;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #333;
-}
-
-.section-header h3 {
-  margin: 0 0 8px;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #333;
-}
-
-.section-header p {
-  margin: 0 0 16px;
-  color: #666;
-  font-size: 0.95rem;
-}
-
-.section-description {
-  color: #666;
-  line-height: 1.6;
-  margin: 0 0 16px;
-}
-
-.demo-showcase {
-  margin: 24px 0;
-  padding: 24px;
-  background: #f8f9fa;
-  border-radius: 8px;
-  border: 1px solid #e9ecef;
-}
-
-.button-group {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.code-block {
-  background: #f6f8fa;
-  border: 1px solid #e1e4e8;
-  border-radius: 6px;
-  padding: 16px;
-  margin-top: 16px;
-}
-
-.code-block pre {
-  margin: 0;
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-  font-size: 13px;
-  line-height: 1.5;
-  color: #24292e;
-}
-
-.message-display {
-  margin-top: 16px;
-  padding: 12px 16px;
-  background: #e3f2fd;
-  border: 1px solid #bbdefb;
-  border-radius: 6px;
-  color: #1976d2;
-  font-size: 14px;
-}
+/* Button Demo 特定样式 */
 
 /* 暗色模式适配 */
 @media (prefers-color-scheme: dark) {

@@ -3,6 +3,7 @@ import type { RouteRecordRaw } from 'vue-router';
 
 // 导入页面组件
 import AlertDemo from '../views/AlertDemo.vue';
+import BaseComponentsDemo from '../views/BaseComponentsDemo.vue';
 import ButtonDemo from '../views/ButtonDemo.vue';
 import Home from '../views/Home.vue';
 
@@ -29,6 +30,14 @@ const routes: RouteRecordRaw[] = [
     component: AlertDemo,
     meta: {
       title: 'Alert 警告提示',
+    },
+  },
+  {
+    path: '/base-components',
+    name: 'BaseComponents',
+    component: BaseComponentsDemo,
+    meta: {
+      title: '基础组件',
     },
   },
 ];

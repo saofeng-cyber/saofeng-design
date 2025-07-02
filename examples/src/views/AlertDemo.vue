@@ -1,18 +1,10 @@
 <template>
   <div class="demo-container">
     <!-- 导航栏 -->
-    <nav class="demo-nav">
-      <button
-        class="back-btn"
-        @click="goBack"
-      >
-        ← 返回首页
-      </button>
-      <h1 class="demo-title">Alert 警告提示</h1>
-      <div class="theme-switcher">
-        <theme-switcher :show-info="false" />
-      </div>
-    </nav>
+    <demo-navigation
+      title="Alert 警告提示"
+      subtitle="警告提示，展现需要关注的信息。"
+    />
 
     <!-- 内容区域 -->
     <main class="demo-content">
@@ -178,11 +170,9 @@
 <script setup lang="ts">
 import { SAlert, SButton } from '@saofeng-design/sui';
 import { ref, reactive } from 'vue';
-import { useRouter } from 'vue-router';
 
-import ThemeSwitcher from '../components/ThemeSwitcher.vue';
-
-const router = useRouter();
+import DemoNavigation from '../components/DemoNavigation.vue';
+import '../styles/demo-common.css';
 
 // 控制可关闭警告的显示状态
 const showAlert1 = ref(true);
@@ -195,10 +185,6 @@ const dynamicAlert = reactive({
   text: '',
   type: 'info',
 });
-
-const goBack = () => {
-  router.push('/');
-};
 
 const resetAlerts = () => {
   showAlert1.value = true;
@@ -235,60 +221,7 @@ const showErrorAlert = () => {
 </script>
 
 <style scoped>
-.demo-container {
-  min-height: 100vh;
-  background: #f8f9fa;
-  transition: all 0.3s ease;
-}
-
-.demo-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 24px;
-  background: white;
-  border-bottom: 1px solid #e9ecef;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.back-btn {
-  background: none;
-  border: none;
-  color: #667eea;
-  cursor: pointer;
-  font-size: 14px;
-  padding: 8px 12px;
-  border-radius: 6px;
-  transition: all 0.2s ease;
-}
-
-.back-btn:hover {
-  background: #f8f9ff;
-  color: #5a67d8;
-}
-
-.demo-title {
-  margin: 0;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #333;
-}
-
-.demo-content {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 32px 24px;
-}
-
-.demo-section {
-  margin-bottom: 48px;
-  background: white;
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
+/* Alert Demo 特定样式 */
 
 .section-header h2 {
   margin: 0 0 8px;

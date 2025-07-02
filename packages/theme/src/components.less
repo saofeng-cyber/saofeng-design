@@ -3,6 +3,27 @@
 // 导入基础令牌
 @import './tokens.less';
 
+// ===== 公共组件基础样式 =====
+
+// 基础卡片样式
+@base-card-padding: 12px 16px;
+@base-card-border-radius: @border-radius-base;
+@base-card-border-width: @border-width-base;
+@base-card-border-style: solid;
+@base-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+@base-card-transition: all @animation-duration-base @ease-in-out;
+
+// 基础交互样式
+@base-interactive-cursor: pointer;
+@base-interactive-user-select: none;
+@base-interactive-touch-action: manipulation;
+@base-interactive-outline: 0;
+
+// 基础状态样式
+@base-disabled-opacity: 0.6;
+@base-disabled-cursor: not-allowed;
+@base-loading-opacity: 0.7;
+
 // ===== Button 组件令牌 =====
 
 @btn-font-weight: @font-weight-normal;

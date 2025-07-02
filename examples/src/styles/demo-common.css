@@ -1,0 +1,211 @@
+/* 通用演示页面样式 */
+
+.demo-container {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%);
+  transition: all 0.3s ease;
+}
+
+.demo-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.demo-section {
+  margin-bottom: 48px;
+  background: white;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 8px 30px rgba(16, 185, 129, 0.08);
+  border: 2px solid rgba(16, 185, 129, 0.1);
+  transition: all 0.3s ease;
+}
+
+.demo-section:hover {
+  box-shadow: 0 12px 40px rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+.section-header h2 {
+  margin: 0 0 12px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #065f46;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.section-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+  border-radius: 2px;
+}
+
+.section-header h3 {
+  margin: 0 0 12px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #065f46;
+}
+
+.section-header p {
+  margin: 0 0 20px;
+  color: #6b7280;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.section-description {
+  color: #6b7280;
+  line-height: 1.7;
+  margin: 0 0 24px;
+  font-size: 1rem;
+}
+
+.demo-showcase {
+  margin: 24px 0;
+  padding: 28px;
+  background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+  border-radius: 16px;
+  border: 2px solid rgba(16, 185, 129, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.demo-showcase::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+}
+
+.button-group,
+.alert-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.alert-group {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.code-block {
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+  border: 2px solid rgba(16, 185, 129, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.code-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+  border-radius: 12px 12px 0 0;
+}
+
+.code-block pre {
+  margin: 0;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #374151;
+}
+
+.message-display,
+.dynamic-alert {
+  margin-top: 20px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+  border: 2px solid rgba(16, 185, 129, 0.3);
+  border-radius: 12px;
+  color: #065f46;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.1);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .demo-content {
+    padding: 24px 16px;
+  }
+  
+  .demo-section {
+    padding: 20px;
+  }
+  
+  .demo-showcase {
+    padding: 20px;
+  }
+  
+  .button-group {
+    gap: 8px;
+  }
+}
+
+/* 暗色模式适配 */
+@media (prefers-color-scheme: dark) {
+  .demo-container {
+    background: linear-gradient(180deg, #1a1a1a 0%, #2d2d2d 100%);
+  }
+  
+  .demo-section {
+    background: #2d2d2d;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    border-color: rgba(16, 185, 129, 0.2);
+  }
+  
+  .demo-section:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(16, 185, 129, 0.3);
+  }
+  
+  .section-header h2,
+  .section-header h3 {
+    color: #10b981;
+  }
+  
+  .section-header p,
+  .section-description {
+    color: #ccc;
+  }
+  
+  .demo-showcase {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    border-color: rgba(16, 185, 129, 0.2);
+  }
+  
+  .code-block {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    border-color: rgba(16, 185, 129, 0.2);
+  }
+  
+  .code-block pre {
+    color: #e1e4e8;
+  }
+  
+  .message-display,
+  .dynamic-alert {
+    background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+    border-color: rgba(16, 185, 129, 0.4);
+    color: #d1fae5;
+  }
+}
