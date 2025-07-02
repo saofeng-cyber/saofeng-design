@@ -7,6 +7,9 @@
   "scripts": {
     "prepare": "husky",
     "demo:dev": "pnpm --dir ./examples dev",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx",
     "lint:fix": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
     "format": "prettier --write .",
@@ -19,8 +22,8 @@
     "@saofeng-design/components": "workspace:*",
     "@saofeng-design/eslint-config": "workspace:*",
     "@saofeng-design/hooks": "workspace:*",
-    "@saofeng-design/prettier-config": "workspace:*",
     "@saofeng-design/plugins": "workspace:*",
+    "@saofeng-design/prettier-config": "workspace:*",
     "@saofeng-design/theme": "workspace:*",
     "@saofeng-design/utils": "workspace:*",
     "vue": "^3.5.17"
@@ -54,6 +57,7 @@
     "unbuild": "2.0.0",
     "vite": "^7.0.0",
     "vite-plugin-dts": "^4.5.4",
+    "vitepress": "^1.6.3",
     "vue-eslint-parser": "^10.1.4",
     "vue-tsc": "^2.2.10"
   },
