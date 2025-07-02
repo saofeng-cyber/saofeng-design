@@ -5,41 +5,44 @@ titleTemplate: 现代化前端开发博客
 
 hero:
   name: 'Saofeng Design'
-  text: '前端开发博客'
-  tagline: '分享现代化前端技术、设计理念与开发实践'
+  text: '现代化组件库'
+  tagline: '清新绿意，简洁优雅 - 全新白+绿主题风格'
   image:
-    src: /logo.svg
+    src: /logo.jpg
     alt: Saofeng Design
   actions:
     - theme: brand
-      text: 开始阅读
-      link: /posts/
+      text: 快速开始
+      link: /guide/getting-started
     - theme: alt
-      text: 关于我们
-      link: /about
+      text: 主题展示
+      link: /theme/design-showcase
+    - theme: alt
+      text: 组件文档
+      link: /components/button
     - theme: alt
       text: GitHub
-      link: https://github.com/saofeng-design
+      link: https://github.com/saofeng-cyber
 
 features:
   - icon: 🚀
-    title: 前端技术
-    details: 深入探讨 Vue.js、React、TypeScript 等现代前端技术栈的最佳实践
+    title: 现代化技术
+    details: 基于 Vue 3 Composition API，使用 TypeScript 构建，提供完整的类型支持
   - icon: 🎨
-    title: 设计系统
-    details: 分享组件库设计、UI/UX 设计理念和设计系统构建经验
+    title: 精美设计
+    details: 遵循现代设计原则，提供一致的设计语言和优雅的用户体验
   - icon: ⚡️
-    title: 性能优化
-    details: 前端性能优化技巧、工程化实践和开发效率提升方案
-  - icon: �️
-    title: 工具分享
-    details: 推荐实用的开发工具、插件和资源，提升开发体验
-  - icon: �
-    title: 移动端开发
-    details: 移动端适配、响应式设计和跨平台开发技术分享
-  - icon: �
-    title: 开源项目
-    details: 开源项目分享、技术选型和项目架构设计经验
+    title: 高性能
+    details: 优化的组件实现，支持按需引入，有效减少打包体积
+  - icon: 🛠️
+    title: 易于定制
+    details: 完整的主题系统，支持深度定制和品牌化设计
+  - icon: 📱
+    title: 响应式设计
+    details: 所有组件都支持响应式设计，完美适配各种设备和屏幕尺寸
+  - icon: 🌟
+    title: 开发友好
+    details: 详细的文档说明，丰富的示例代码，完善的开发工具支持
 ---
 
 ## 🌟 为什么选择 Saofeng Design？
@@ -136,21 +139,13 @@ saofeng-design/
 
 我们欢迎所有形式的贡献，无论是新功能、bug 修复、文档改进还是其他任何形式的帮助。
 
-- 🐛 [报告 Bug](https://github.com/saofeng-design/saofeng-design/issues)
-- 💡 [提出新功能](https://github.com/saofeng-design/saofeng-design/issues)
-- 📖 [改进文档](https://github.com/saofeng-design/saofeng-design/pulls)
-- 💻 [提交代码](https://github.com/saofeng-design/saofeng-design/pulls)
+- 🐛 [报告 Bug](https://github.com/saofeng-cyber/saofeng-design/issues)
+- 💡 [提出新功能](https://github.com/saofeng-cyber/saofeng-design/issues)
+- 📖 [改进文档](https://github.com/saofeng-cyber/saofeng-design/pulls)
+- 💻 [提交代码](https://github.com/saofeng-cyber/saofeng-design/pulls)
 
 ### 📄 许可证
 
-本项目基于 [ISC](https://github.com/saofeng-design/saofeng-design/blob/main/LICENSE) 许可证开源。
+本项目基于 [ISC](https://github.com/saofeng-cyber/saofeng-design/blob/main/LICENSE) 许可证开源。
 
 ---
-
-<div style="text-align: center; margin: 3rem 0; padding: 2rem; background: linear-gradient(135deg, #f590ff 0%, #f50 100%); border-radius: 12px; color: white;">
-  <h3 style="margin-bottom: 1rem; color: white;">🎉 立即开始使用 Saofeng Design</h3>
-  <p style="margin-bottom: 1.5rem; opacity: 0.9;">加入我们，一起构建更美好的用户界面</p>
-  <a href="/guide/getting-started" style="display: inline-block; padding: 0.75rem 2rem; background: rgba(255, 255, 255, 0.2); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); transition: all 0.3s ease;">
-    开始使用 →
-  </a>
-</div>

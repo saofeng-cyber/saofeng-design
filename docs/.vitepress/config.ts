@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress';
 
 export default defineConfig({
   title: 'Saofeng Design',
-  description: '一个现代化的 Vue 3 组件库',
+  description: '现代化前端开发博客 - 分享技术、设计理念与最佳实践',
   lang: 'zh-CN',
 
   // 基础配置
@@ -11,52 +11,90 @@ export default defineConfig({
 
   // 头部配置
   head: [
-    ['link', { rel: 'icon', href: '/favicon.ico' }],
-    ['meta', { name: 'theme-color', content: '#1890ff' }],
+    ['link', { rel: 'icon', href: '/logo.jpg' }],
+    ['meta', { name: 'theme-color', content: '#22c55e' }],
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
-    ['meta', { property: 'og:title', content: 'Saofeng Design' }],
-    ['meta', { property: 'og:description', content: '一个现代化的 Vue 3 组件库' }],
+    ['meta', { property: 'og:title', content: 'Saofeng Design | 现代化前端开发博客' }],
+    ['meta', { property: 'og:description', content: '分享现代化前端技术、设计理念与开发实践' }],
     ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:image', content: '/logo.svg' }],
+    ['meta', { property: 'og:url', content: 'https://github.com/saofeng-cyber/saofeng-design' }],
   ],
 
   // 主题配置
   themeConfig: {
     // 网站标题和 Logo
-    logo: '/logo.svg',
+    logo: '/logo.jpg',
     siteTitle: 'Saofeng Design',
 
     // 导航栏
     nav: [
-      { text: '指南', link: '/guide/introduction' },
-      { text: '组件', link: '/components/button' },
-      { text: '主题', link: '/theme/design-tokens' },
-      { text: '工具', link: '/utils/hooks' },
+      { text: '首页', link: '/' },
       {
-        text: '生态系统',
+        text: '博客',
         items: [
-          { text: 'GitHub', link: 'https://github.com/saofeng-design' },
-          { text: 'NPM', link: 'https://www.npmjs.com/org/saofeng-design' },
+          { text: '所有文章', link: '/posts/' },
+          { text: '前端技术', link: '/posts/#前端技术' },
+          { text: '设计系统', link: '/posts/#设计系统' },
+          { text: '工具分享', link: '/posts/#工具分享' },
+        ],
+      },
+      { text: '关于', link: '/about' },
+      {
+        text: '主题',
+        items: [
+          { text: '颜色系统', link: '/theme/colors' },
+          { text: '设计令牌', link: '/theme/design-tokens' },
+          { text: '设计展示', link: '/theme/design-showcase' },
+        ],
+      },
+      {
+        text: '资源',
+        items: [
+          { text: '组件库', link: '/components/' },
+          { text: '工具函数', link: '/utils/' },
+          { text: 'GitHub', link: 'https://github.com/saofeng-cyber/saofeng-design' },
         ],
       },
     ],
 
     // 侧边栏
     sidebar: {
-      '/guide/': [
+      '/posts/': [
         {
-          text: '开始',
+          text: '📝 最新文章',
           items: [
-            { text: '介绍', link: '/guide/introduction' },
-            { text: '快速开始', link: '/guide/getting-started' },
-            { text: '安装', link: '/guide/installation' },
+            { text: '欢迎来到 Saofeng Design 博客', link: '/posts/welcome' },
+            { text: '现代前端开发工具链指南', link: '/posts/modern-frontend-toolchain' },
+            {
+              text: 'Vue 3 组合式 API 最佳实践',
+              link: '/posts/vue3-composition-api-best-practices',
+            },
+            { text: '设计系统构建指南', link: '/posts/design-system-guide' },
           ],
         },
         {
-          text: '进阶',
+          text: '🚀 前端技术',
           items: [
-            { text: '定制主题', link: '/guide/customization' },
-            { text: '国际化', link: '/guide/i18n' },
-            { text: '最佳实践', link: '/guide/best-practices' },
+            { text: 'Vue.js 开发技巧', link: '/posts/vue-tips' },
+            { text: 'React 最佳实践', link: '/posts/react-best-practices' },
+            { text: 'TypeScript 进阶', link: '/posts/typescript-advanced' },
+          ],
+        },
+        {
+          text: '🎨 设计系统',
+          items: [
+            { text: '组件库设计', link: '/posts/component-library-design' },
+            { text: '设计令牌系统', link: '/posts/design-tokens' },
+            { text: '主题定制', link: '/posts/theme-customization' },
+          ],
+        },
+        {
+          text: '⚡️ 性能优化',
+          items: [
+            { text: '前端性能优化', link: '/posts/frontend-performance' },
+            { text: '构建优化', link: '/posts/build-optimization' },
+            { text: '运行时优化', link: '/posts/runtime-optimization' },
           ],
         },
       ],
@@ -83,25 +121,18 @@ export default defineConfig({
           ],
         },
       ],
+
       '/theme/': [
         {
-          text: '设计系统',
+          text: '🎨 主题系统',
           items: [
-            { text: '设计令牌', link: '/theme/design-tokens' },
             { text: '颜色系统', link: '/theme/colors' },
-            { text: '字体系统', link: '/theme/typography' },
-            { text: '间距系统', link: '/theme/spacing' },
-          ],
-        },
-        {
-          text: '主题定制',
-          items: [
-            { text: '主题配置', link: '/theme/configuration' },
-            { text: '暗色模式', link: '/theme/dark-mode' },
-            { text: 'CSS 变量', link: '/theme/css-variables' },
+            { text: '设计令牌', link: '/theme/design-tokens' },
+            { text: '设计展示', link: '/theme/design-showcase' },
           ],
         },
       ],
+
       '/utils/': [
         {
           text: '工具函数',
@@ -115,12 +146,15 @@ export default defineConfig({
     },
 
     // 社交链接
-    socialLinks: [{ icon: 'github', link: 'https://github.com/saofeng-design' }],
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/saofeng-cyber' },
+      { icon: 'twitter', link: 'https://twitter.com/SaofengDesign' },
+    ],
 
     // 页脚
     footer: {
-      message: 'Released under the ISC License.',
-      copyright: 'Copyright © 2024 Saofeng Design',
+      message: 'Released under the MIT License.',
+      copyright: 'Copyright © 2024 Saofeng Design Team',
     },
 
     // 搜索
@@ -130,7 +164,7 @@ export default defineConfig({
 
     // 编辑链接
     editLink: {
-      pattern: 'https://github.com/saofeng-design/saofeng-design/edit/main/docs/:path',
+      pattern: 'https://github.com/saofeng-cyber/saofeng-design/edit/main/docs/:path',
       text: '在 GitHub 上编辑此页',
     },
 

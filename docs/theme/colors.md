@@ -5,12 +5,15 @@ Saofeng Design 的颜色系统基于科学的色彩理论和用户体验原则�
 ## 设计原则
 
 ### 有意义的颜色
+
 每种颜色都有其特定的含义和用途，帮助用户理解信息的重要性和状态。
 
 ### 无障碍访问
+
 所有颜色组合都符合 WCAG 2.1 AA 级别的对比度要求，确保良好的可读性。
 
 ### 品牌一致性
+
 颜色系统支持品牌定制，同时保持设计的一致性和专业性。
 
 ## 主色调
@@ -311,23 +314,23 @@ Saofeng Design 原生支持暗色模式，提供舒适的夜间使用体验。
   --s-color-primary: #1890ff;
   --s-color-primary-hover: #40a9ff;
   --s-color-primary-active: #096dd9;
-  
+
   /* 功能色 */
   --s-color-success: #52c41a;
   --s-color-warning: #faad14;
   --s-color-error: #ff4d4f;
   --s-color-info: #1890ff;
-  
+
   /* 文本色 */
   --s-color-text-primary: rgba(0, 0, 0, 0.88);
   --s-color-text-secondary: rgba(0, 0, 0, 0.65);
   --s-color-text-tertiary: rgba(0, 0, 0, 0.45);
-  
+
   /* 背景色 */
   --s-color-bg-primary: #ffffff;
   --s-color-bg-secondary: #fafafa;
   --s-color-bg-tertiary: #f5f5f5;
-  
+
   /* 边框色 */
   --s-color-border-base: #d9d9d9;
   --s-color-border-light: #f0f0f0;
@@ -376,21 +379,21 @@ Saofeng Design 原生支持暗色模式，提供舒适的夜间使用体验。
 ### JavaScript/TypeScript
 
 ```typescript
-import { colorUtils } from '@saofeng-design/theme'
+import { colorUtils } from '@saofeng-design/theme';
 
 // 颜色转换
-const rgbColor = colorUtils.hexToRgb('#1890ff')
-const hexColor = colorUtils.rgbToHex(24, 144, 255)
+const rgbColor = colorUtils.hexToRgb('#1890ff');
+const hexColor = colorUtils.rgbToHex(24, 144, 255);
 
 // 生成调色板
-const palette = colorUtils.generatePalette('#1890ff')
+const palette = colorUtils.generatePalette('#1890ff');
 
 // 颜色混合
-const mixedColor = colorUtils.mix('#1890ff', '#ffffff', 0.5)
+const mixedColor = colorUtils.mix('#1890ff', '#ffffff', 0.5);
 
 // 亮度调整
-const lighterColor = colorUtils.lighten('#1890ff', 20)
-const darkerColor = colorUtils.darken('#1890ff', 20)
+const lighterColor = colorUtils.lighten('#1890ff', 20);
+const darkerColor = colorUtils.darken('#1890ff', 20);
 ```
 
 ## 无障碍访问
@@ -412,11 +415,12 @@ const darkerColor = colorUtils.darken('#1890ff', 20)
 - 使用高对比度的颜色组合
 
 ::: tip 💡 最佳实践
+
 1. **语义化使用**：根据颜色的语义含义使用，而不是仅仅因为好看
 2. **保持一致性**：在整个应用中保持颜色使用的一致性
 3. **测试对比度**：确保文本和背景的对比度符合无障碍标准
 4. **考虑上下文**：在不同的上下文中测试颜色的效果
-:::
+   :::
 
 <style>
 .color-section {

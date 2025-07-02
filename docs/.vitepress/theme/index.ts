@@ -1,7 +1,11 @@
 import DefaultTheme from 'vitepress/theme';
+import './custom.css';
+import DesignElements from './components/DesignElements.vue';
+
 export default {
   extends: DefaultTheme,
   enhanceApp({ app, router, siteData }) {
-    // 可以在这里添加全局组件或插件
+    // 注册全局组件
+    app.component('DesignElements', DesignElements);
   },
 };

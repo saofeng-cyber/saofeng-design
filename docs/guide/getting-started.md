@@ -52,14 +52,14 @@ yarn add @saofeng-design/hooks @saofeng-design/utils
 
 ```typescript
 // main.ts
-import { createApp } from 'vue'
-import SaofengDesign from '@saofeng-design/components'
-import '@saofeng-design/theme/dist/index.css'
-import App from './App.vue'
+import { createApp } from 'vue';
+import SaofengDesign from '@saofeng-design/components';
+import '@saofeng-design/theme/dist/index.css';
+import App from './App.vue';
 
-const app = createApp(App)
-app.use(SaofengDesign)
-app.mount('#app')
+const app = createApp(App);
+app.use(SaofengDesign);
+app.mount('#app');
 ```
 
 ### 按需引入 (推荐)
@@ -69,23 +69,26 @@ app.mount('#app')
 ```vue
 <template>
   <div>
-    <SButton type="primary" @click="handleClick">
+    <SButton
+      type="primary"
+      @click="handleClick"
+    >
       主要按钮
     </SButton>
-    <SAlert 
-      type="success" 
-      message="操作成功！" 
-      show-icon 
+    <SAlert
+      type="success"
+      message="操作成功！"
+      show-icon
     />
   </div>
 </template>
 
 <script setup lang="ts">
-import { SButton, SAlert } from '@saofeng-design/components'
+import { SButton, SAlert } from '@saofeng-design/components';
 
 const handleClick = () => {
-  console.log('按钮被点击了！')
-}
+  console.log('按钮被点击了！');
+};
 </script>
 ```
 
@@ -95,7 +98,7 @@ const handleClick = () => {
 
 ```typescript
 // main.ts 或在您的入口文件中
-import '@saofeng-design/theme/dist/index.css'
+import '@saofeng-design/theme/dist/index.css';
 ```
 
 或者在 CSS 文件中引入：
@@ -113,17 +116,17 @@ Saofeng Design 提供了开箱即用的默认主题：
 
 ```typescript
 // main.ts
-import { createApp } from 'vue'
-import { createThemeConfig } from '@saofeng-design/theme'
-import App from './App.vue'
+import { createApp } from 'vue';
+import { createThemeConfig } from '@saofeng-design/theme';
+import App from './App.vue';
 
-const app = createApp(App)
+const app = createApp(App);
 
 // 使用默认主题
-const theme = createThemeConfig()
-app.provide('theme', theme)
+const theme = createThemeConfig();
+app.provide('theme', theme);
 
-app.mount('#app')
+app.mount('#app');
 ```
 
 ### 自定义主题
@@ -131,17 +134,17 @@ app.mount('#app')
 您可以轻松定制主题以匹配您的品牌：
 
 ```typescript
-import { createThemeConfig } from '@saofeng-design/theme'
+import { createThemeConfig } from '@saofeng-design/theme';
 
 const customTheme = createThemeConfig({
   name: 'my-theme',
   tokens: {
     colors: {
-      primary: '#1890ff',      // 主色
-      success: '#52c41a',      // 成功色
-      warning: '#faad14',      // 警告色
-      danger: '#ff4d4f',       // 危险色
-      info: '#1890ff',         // 信息色
+      primary: '#1890ff', // 主色
+      success: '#52c41a', // 成功色
+      warning: '#faad14', // 警告色
+      danger: '#ff4d4f', // 危险色
+      info: '#1890ff', // 信息色
     },
     fonts: {
       family: {
@@ -154,7 +157,7 @@ const customTheme = createThemeConfig({
         base: '16px',
         lg: '18px',
         xl: '20px',
-      }
+      },
     },
     spacing: {
       xs: '4px',
@@ -162,9 +165,9 @@ const customTheme = createThemeConfig({
       md: '16px',
       lg: '24px',
       xl: '32px',
-    }
-  }
-})
+    },
+  },
+});
 ```
 
 ## 🌙 暗色模式
@@ -174,21 +177,19 @@ Saofeng Design 原生支持暗色模式：
 ```vue
 <template>
   <div>
-    <SButton @click="toggleDarkMode">
-      切换主题
-    </SButton>
+    <SButton @click="toggleDarkMode"> 切换主题 </SButton>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from 'vue';
 
-const isDark = ref(false)
+const isDark = ref(false);
 
 const toggleDarkMode = () => {
-  isDark.value = !isDark.value
-  document.documentElement.classList.toggle('dark', isDark.value)
-}
+  isDark.value = !isDark.value;
+  document.documentElement.classList.toggle('dark', isDark.value);
+};
 </script>
 ```
 
@@ -199,7 +200,7 @@ const toggleDarkMode = () => {
 ```vue
 <template>
   <div class="container">
-    <SButton 
+    <SButton
       :size="buttonSize"
       type="primary"
     >
@@ -209,16 +210,16 @@ const toggleDarkMode = () => {
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useBreakpoint } from '@saofeng-design/hooks'
+import { computed } from 'vue';
+import { useBreakpoint } from '@saofeng-design/hooks';
 
-const { isMobile, isTablet } = useBreakpoint()
+const { isMobile, isTablet } = useBreakpoint();
 
 const buttonSize = computed(() => {
-  if (isMobile.value) return 'small'
-  if (isTablet.value) return 'medium'
-  return 'large'
-})
+  if (isMobile.value) return 'small';
+  if (isTablet.value) return 'medium';
+  return 'large';
+});
 </script>
 ```
 
@@ -227,14 +228,14 @@ const buttonSize = computed(() => {
 Saofeng Design 提供完整的 TypeScript 支持：
 
 ```typescript
-import type { ButtonProps, AlertType } from '@saofeng-design/components'
+import type { ButtonProps, AlertType } from '@saofeng-design/components';
 
 interface MyComponentProps {
-  buttonProps: ButtonProps
-  alertType: AlertType
+  buttonProps: ButtonProps;
+  alertType: AlertType;
 }
 
-const props = defineProps<MyComponentProps>()
+const props = defineProps<MyComponentProps>();
 ```
 
 ## 📋 完整示例
@@ -248,11 +249,14 @@ const props = defineProps<MyComponentProps>()
   <div class="app">
     <header class="header">
       <h1>Saofeng Design 示例</h1>
-      <SButton @click="toggleTheme" type="text">
+      <SButton
+        @click="toggleTheme"
+        type="text"
+      >
         {{ isDark ? '🌞' : '🌙' }}
       </SButton>
     </header>
-    
+
     <main class="main">
       <section class="section">
         <h2>按钮组件</h2>
@@ -264,29 +268,29 @@ const props = defineProps<MyComponentProps>()
           <SButton type="link">链接按钮</SButton>
         </div>
       </section>
-      
+
       <section class="section">
         <h2>警告组件</h2>
-        <SAlert 
-          type="success" 
-          message="这是一条成功消息" 
-          show-icon 
-          closable 
+        <SAlert
+          type="success"
+          message="这是一条成功消息"
+          show-icon
+          closable
         />
-        <SAlert 
-          type="info" 
-          message="这是一条信息消息" 
-          show-icon 
+        <SAlert
+          type="info"
+          message="这是一条信息消息"
+          show-icon
         />
-        <SAlert 
-          type="warning" 
-          message="这是一条警告消息" 
-          show-icon 
+        <SAlert
+          type="warning"
+          message="这是一条警告消息"
+          show-icon
         />
-        <SAlert 
-          type="error" 
-          message="这是一条错误消息" 
-          show-icon 
+        <SAlert
+          type="error"
+          message="这是一条错误消息"
+          show-icon
         />
       </section>
     </main>
@@ -294,15 +298,15 @@ const props = defineProps<MyComponentProps>()
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { SButton, SAlert } from '@saofeng-design/components'
+import { ref } from 'vue';
+import { SButton, SAlert } from '@saofeng-design/components';
 
-const isDark = ref(false)
+const isDark = ref(false);
 
 const toggleTheme = () => {
-  isDark.value = !isDark.value
-  document.documentElement.classList.toggle('dark', isDark.value)
-}
+  isDark.value = !isDark.value;
+  document.documentElement.classList.toggle('dark', isDark.value);
+};
 </script>
 
 <style scoped>
@@ -348,12 +352,12 @@ const toggleTheme = () => {
 ```
 
 ```typescript [main.ts]
-import { createApp } from 'vue'
-import { createThemeConfig } from '@saofeng-design/theme'
-import '@saofeng-design/theme/dist/index.css'
-import App from './App.vue'
+import { createApp } from 'vue';
+import { createThemeConfig } from '@saofeng-design/theme';
+import '@saofeng-design/theme/dist/index.css';
+import App from './App.vue';
 
-const app = createApp(App)
+const app = createApp(App);
 
 // 配置主题
 const theme = createThemeConfig({
@@ -361,12 +365,12 @@ const theme = createThemeConfig({
   tokens: {
     colors: {
       primary: '#1890ff',
-    }
-  }
-})
+    },
+  },
+});
 
-app.provide('theme', theme)
-app.mount('#app')
+app.provide('theme', theme);
+app.mount('#app');
 ```
 
 ```json [package.json]
@@ -406,7 +410,7 @@ app.mount('#app')
 4. **最佳实践**：查看 [最佳实践](/guide/best-practices) 指南
 
 ::: tip 💡 提示
-如果您在使用过程中遇到问题，可以查看 [常见问题](/guide/faq) 或在 [GitHub](https://github.com/saofeng-design/saofeng-design/issues) 上提出 Issue。
+如果您在使用过程中遇到问题，可以查看 [常见问题](/guide/faq) 或在 [GitHub](https://github.com/saofeng-cyber/saofeng-design/issues) 上提出 Issue。
 :::
 
 ::: warning ⚠️ 注意
