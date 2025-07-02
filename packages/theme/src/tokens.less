@@ -6,10 +6,12 @@
 // ===== 颜色系统 =====
 
 // 主色调
-@primary-color: #1890ff;
-@primary-color-hover: #40a9ff;
-@primary-color-active: #096dd9;
-@primary-color-outline: fade(@primary-color, 20%);
+// 更具质感的主色调（深邃蓝+渐变）
+@primary-color: #2062ff;
+@primary-color-hover: #3576ff;
+@primary-color-active: #0a1e40;
+@primary-color-outline: fade(#2062ff, 20%);
+@primary-color-gradient: linear-gradient(90deg, #2062ff 0%, #0a1e40 100%);
 
 // 功能色
 @success-color: #52c41a;
@@ -77,9 +79,8 @@
 // ===== 字体系统 =====
 
 // 字体族
-@font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-  'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-  'Noto Color Emoji';
+@font-family: 'Inter', 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial,
+  sans-serif;
 @font-family-code: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 
 // 字体大小
@@ -119,9 +120,9 @@
 @height-sm: 24px;
 
 // 圆角
-@border-radius-base: 6px;
-@border-radius-sm: 4px;
-@border-radius-lg: 8px;
+@border-radius-base: 12px;
+@border-radius-sm: 8px;
+@border-radius-lg: 20px;
 
 // 边框宽度
 @border-width-base: 1px;
@@ -129,9 +130,8 @@
 // ===== 阴影系统 =====
 
 @box-shadow-base:
-  0 3px 6px -4px rgba(0, 0, 0, 0.12),
-  0 6px 16px 0 rgba(0, 0, 0, 0.08),
-  0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  0 4px 24px 0 rgba(32, 98, 255, 0.1),
+  0 1.5px 6px 0 rgba(10, 30, 64, 0.08);
 @box-shadow-popover:
   0 3px 6px -4px rgba(0, 0, 0, 0.12),
   0 6px 16px 0 rgba(0, 0, 0, 0.08),
@@ -145,7 +145,7 @@
 
 // 动画时长
 @animation-duration-slow: 0.3s;
-@animation-duration-base: 0.2s;
+@animation-duration-base: 0.28s;
 @animation-duration-fast: 0.1s;
 
 // 动画曲线
