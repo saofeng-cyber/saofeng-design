@@ -34,14 +34,6 @@
             <s-button type="info">信息按钮</s-button>
           </div>
         </div>
-        <div class="code-block">
-          <pre><code>&lt;SButton&gt;默认按钮&lt;/SButton&gt;
-&lt;SButton type="primary"&gt;主要按钮&lt;/SButton&gt;
-&lt;SButton type="success"&gt;成功按钮&lt;/SButton&gt;
-&lt;SButton type="warning"&gt;警告按钮&lt;/SButton&gt;
-&lt;SButton type="danger"&gt;危险按钮&lt;/SButton&gt;
-&lt;SButton type="info"&gt;信息按钮&lt;/SButton&gt;</code></pre>
-        </div>
       </section>
 
       <!-- 按钮尺寸 -->
@@ -65,11 +57,6 @@
             >
           </div>
         </div>
-        <div class="code-block">
-          <pre><code>&lt;SButton size="large" type="primary"&gt;大型按钮&lt;/SButton&gt;
-&lt;SButton type="primary"&gt;默认按钮&lt;/SButton&gt;
-&lt;SButton size="small" type="primary"&gt;小型按钮&lt;/SButton&gt;</code></pre>
-        </div>
       </section>
 
       <!-- 禁用状态 -->
@@ -92,11 +79,6 @@
               >成功按钮</s-button
             >
           </div>
-        </div>
-        <div class="code-block">
-          <pre><code>&lt;SButton disabled&gt;默认按钮&lt;/SButton&gt;
-&lt;SButton type="primary" disabled&gt;主要按钮&lt;/SButton&gt;
-&lt;SButton type="success" disabled&gt;成功按钮&lt;/SButton&gt;</code></pre>
         </div>
       </section>
 
@@ -122,11 +104,6 @@
               点击加载
             </s-button>
           </div>
-        </div>
-        <div class="code-block">
-          <pre><code>&lt;SButton loading&gt;加载中&lt;/SButton&gt;
-&lt;SButton type="primary" loading&gt;加载中&lt;/SButton&gt;
-&lt;SButton type="success" loading&gt;点击加载&lt;/SButton&gt;</code></pre>
         </div>
       </section>
 
