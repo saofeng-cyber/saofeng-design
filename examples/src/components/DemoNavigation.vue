@@ -25,16 +25,12 @@
       </p>
     </div>
 
-    <div class="nav-right">
-      <theme-switcher :show-info="false" />
-    </div>
+    <div class="nav-right"></div>
   </nav>
 </template>
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
-
-import ThemeSwitcher from './ThemeSwitcher.vue';
 
 interface Props {
   title: string;

@@ -51,11 +51,6 @@
             </button>
           </div>
         </div>
-
-        <!-- 主题切换器 -->
-        <div class="theme-switcher-container">
-          <theme-switcher :show-info="false" />
-        </div>
       </div>
     </header>
 
@@ -219,7 +214,6 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 import Icons from '../components/Icons.vue';
-import ThemeSwitcher from '../components/ThemeSwitcher.vue';
 
 const router = useRouter();
 
@@ -523,13 +517,6 @@ const scrollToComponents = () => {
   background: rgba(255, 255, 255, 0.3);
   transform: translateY(-3px);
   border-color: rgba(255, 255, 255, 0.5);
-}
-
-.theme-switcher-container {
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  z-index: 10;
 }
 
 /* 通用容器 */
@@ -1001,11 +988,6 @@ const scrollToComponents = () => {
   .footer-links {
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
-  }
-
-  .theme-switcher-container {
-    top: 20px;
-    right: 20px;
   }
 }
 
