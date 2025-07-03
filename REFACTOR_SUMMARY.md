@@ -2,32 +2,16 @@
 
 ## 概述
 
-本次重构从 Button 和 Alert 组件中抽取了共同的样式和功能，创建了两个基础公共组件：`BaseCard` 和 `BaseInteractive`。这些基础组件提供了统一的设计语言和交互行为，提高了代码复用性和维护性。
+本次重构从 Button 和 Alert 组件中抽取了共同的样式和功能，创建了一个基础公共组件：`BaseInteractive`。这个基础组件提供了统一的交互行为，提高了代码复用性和维护性。
 
 ## 抽取的公共组件
 
-### 1. BaseCard 基础卡片组件
-
-**位置**: `packages/sui/components/BaseCard/`
-
-**功能**:
-- 提供统一的卡片容器样式
-- 支持多种变体（default、primary、success、warning、danger、info）
-- 支持不同尺寸（small、default、large）
-- 支持边框、阴影、悬停效果
-- 支持加载状态
-
-**主要特性**:
-- 统一的边框圆角和内边距
-- 一致的颜色主题系统
-- 平滑的过渡动画
-- 可配置的交互效果
-
-### 2. BaseInteractive 基础交互组件
+### BaseInteractive 基础交互组件
 
 **位置**: `packages/sui/components/BaseInteractive/`
 
 **功能**:
+
 - 提供统一的交互元素样式
 - 支持多种变体（default、primary、success、warning、danger、info、text、link）
 - 支持不同尺寸（small、default、large）
@@ -35,6 +19,7 @@
 - 支持多种 HTML 标签（button、a、div 等）
 
 **主要特性**:
+
 - 统一的交互状态管理
 - 一致的视觉反馈
 - 可配置的标签类型
@@ -48,14 +33,6 @@
 
 ```less
 // ===== 公共组件基础样式 =====
-
-// 基础卡片样式
-@base-card-padding: 12px 16px;
-@base-card-border-radius: @border-radius-base;
-@base-card-border-width: @border-width-base;
-@base-card-border-style: solid;
-@base-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-@base-card-transition: all @animation-duration-base @ease-in-out;
 
 // 基础交互样式
 @base-interactive-cursor: pointer;
@@ -74,12 +51,14 @@
 ### Button 组件重构
 
 **变更**:
+
 - 基于 `BaseInteractive` 重新构建
 - 保持原有 API 不变
 - 继承了统一的交互行为
 - 减少了重复的样式代码
 
 **优势**:
+
 - 更一致的交互体验
 - 更易维护的代码结构
 - 自动获得基础组件的功能更新
@@ -87,27 +66,26 @@
 ### Alert 组件重构
 
 **变更**:
-- 基于 `BaseCard` 重新构建
+
+- 移除了对 `BaseCard` 的依赖
+- 使用原生 div 元素和自定义样式
 - 增强了功能和 API
 - 支持更多的配置选项
 - 改进了样式和布局
 
 **新增功能**:
+
 - 支持描述文本
 - 支持自定义图标
 - 支持操作区域插槽
 - 支持 banner 模式
 - 支持可关闭功能
+- 独立的样式系统
 
 ## 文件结构
 
 ```
 packages/sui/components/
-├── BaseCard/
-│   ├── index.ts
-│   └── src/
-│       ├── BaseCard.vue
-│       └── instance.ts
 ├── BaseInteractive/
 │   ├── index.ts
 │   └── src/
@@ -127,7 +105,7 @@ packages/sui/components/
 ### 1. 演示页面
 
 创建了 `examples/src/views/BaseComponentsDemo.vue` 展示：
-- BaseCard 的各种用法
+
 - BaseInteractive 的各种用法
 - 重构后的 Button 和 Alert 组件
 - 组合使用示例
@@ -135,6 +113,7 @@ packages/sui/components/
 ### 2. 文档
 
 创建了 `docs/components/base-components.md` 包含：
+
 - 基础组件的详细 API 文档
 - 使用示例和最佳实践
 - 设计原则和架构说明
@@ -144,7 +123,7 @@ packages/sui/components/
 
 ### 1. 分层架构
 
-- **基础组件层**: BaseCard、BaseInteractive
+- **基础组件层**: BaseInteractive
 - **业务组件层**: Button、Alert、Input 等
 - **复合组件层**: Form、Table、Modal 等
 
@@ -218,7 +197,7 @@ packages/sui/components/
 
 通过本次重构，我们成功地：
 
-1. **抽取了两个高质量的基础组件**，为后续组件开发奠定了基础
+1. **抽取了一个高质量的基础组件 BaseInteractive**，为后续组件开发奠定了基础
 2. **重构了 Button 和 Alert 组件**，提高了代码质量和一致性
 3. **建立了清晰的组件架构**，便于后续维护和扩展
 4. **完善了主题系统**，提供了更好的定制能力

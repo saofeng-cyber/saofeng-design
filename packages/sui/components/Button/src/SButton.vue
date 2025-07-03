@@ -1,21 +1,25 @@
 <template>
-  <base-interactive
-    :variant="type"
-    :size="size"
-    :disabled="disabled"
-    :loading="loading"
-    :native-type="nativeType"
+  <button
     :class="[
       ns.b(),
+      ns.m(type),
+      ns.m(size),
       {
+        [ns.is('disabled')]: disabled,
+        [ns.is('loading')]: loading,
         [ns.is('round')]: round,
         [ns.is('circle')]: circle,
         [ns.is('plain')]: plain,
       },
     ]"
+    :disabled="disabled || loading"
+    :type="nativeType"
     @click="handleClick"
   >
-    <template #loading>
+    <span
+      v-if="loading"
+      :class="ns.e('loading')"
+    >
       <slot name="loading">
         <svg
           viewBox="0 0 1024 1024"
@@ -32,30 +36,24 @@
           />
         </svg>
       </slot>
-    </template>
-
-    <template #prefix>
-      <span
-        v-if="icon && !loading"
-        :class="ns.e('icon')"
-      >
-        <slot name="icon">{{ icon }}</slot>
-      </span>
-    </template>
-
+    </span>
+    <span
+      v-if="icon && !loading"
+      :class="ns.e('icon')"
+    >
+      <slot name="icon">{{ icon }}</slot>
+    </span>
     <span
       v-if="$slots.default || text"
       :class="ns.e('text')"
     >
       <slot>{{ text }}</slot>
     </span>
-  </base-interactive>
+  </button>
 </template>
 
 <script setup lang="ts">
 import { useNameSpace } from '@saofeng-design/hooks';
-
-import BaseInteractive from '../../BaseInteractive/src/BaseInteractive.vue';
 
 import { buttonProps, buttonEmits } from './types';
 

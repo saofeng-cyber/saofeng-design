@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { SButton } from '@saofeng-design/sui';
+import { SButton } from '@saofeng-design/components';
 import { ref, computed, onMounted, onUnmounted } from 'vue';
 
 import { themeManager } from '../utils/themeManager';

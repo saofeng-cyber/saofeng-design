@@ -24,17 +24,29 @@
         </div>
         <div class="demo-showcase">
           <div class="alert-group">
-            <s-alert text="这是一个基础的警告提示" />
-            <s-alert text="这是一个信息提示" />
-            <s-alert text="这是一个成功提示" />
-            <s-alert text="这是一个警告提示" />
+            <s-alert
+              type="info"
+              message="这是一个基础的信息提示"
+            />
+            <s-alert
+              type="success"
+              message="这是一个成功提示"
+            />
+            <s-alert
+              type="warning"
+              message="这是一个警告提示"
+            />
+            <s-alert
+              type="error"
+              message="这是一个错误提示"
+            />
           </div>
         </div>
         <div class="code-block">
-          <pre><code>&lt;SAlert text="这是一个基础的警告提示" /&gt;
-&lt;SAlert text="这是一个信息提示" /&gt;
-&lt;SAlert text="这是一个成功提示" /&gt;
-&lt;SAlert text="这是一个警告提示" /&gt;</code></pre>
+          <pre><code><s-alert type="info" message="这是一个基础的信息提示" />
+<s-alert type="success" message="这是一个成功提示" />
+<s-alert type="warning" message="这是一个警告提示" />
+<s-alert type="error" message="这是一个错误提示" /></code></pre>
         </div>
       </section>
 
@@ -46,17 +58,29 @@
         </div>
         <div class="demo-showcase">
           <div class="alert-group">
-            <s-alert text="成功提示的文案" />
-            <s-alert text="信息提示的文案" />
-            <s-alert text="警告提示的文案" />
-            <s-alert text="错误提示的文案" />
+            <s-alert
+              type="success"
+              message="成功提示的文案"
+            />
+            <s-alert
+              type="info"
+              message="信息提示的文案"
+            />
+            <s-alert
+              type="warning"
+              message="警告提示的文案"
+            />
+            <s-alert
+              type="error"
+              message="错误提示的文案"
+            />
           </div>
         </div>
         <div class="code-block">
-          <pre><code>&lt;SAlert text="成功提示的文案" /&gt;
-&lt;SAlert text="信息提示的文案" /&gt;
-&lt;SAlert text="警告提示的文案" /&gt;
-&lt;SAlert text="错误提示的文案" /&gt;</code></pre>
+          <pre><code><s-alert type="success" message="成功提示的文案" />
+<s-alert type="info" message="信息提示的文案" />
+<s-alert type="warning" message="警告提示的文案" />
+<s-alert type="error" message="错误提示的文案" /></code></pre>
         </div>
       </section>
 
@@ -70,15 +94,24 @@
           <div class="alert-group">
             <s-alert
               v-if="showAlert1"
-              text="这是一个可关闭的成功提示"
+              type="success"
+              message="这是一个可关闭的成功提示"
+              closable
+              @close="showAlert1 = false"
             />
             <s-alert
               v-if="showAlert2"
-              text="这是一个可关闭的信息提示"
+              type="info"
+              message="这是一个可关闭的信息提示"
+              closable
+              @close="showAlert2 = false"
             />
             <s-alert
               v-if="showAlert3"
-              text="这是一个可关闭的警告提示"
+              type="warning"
+              message="这是一个可关闭的警告提示"
+              closable
+              @close="showAlert3 = false"
             />
           </div>
           <div class="button-group">
@@ -92,11 +125,11 @@
           </div>
         </div>
         <div class="code-block">
-          <pre><code>&lt;SAlert 
-  text="这是一个可关闭的成功提示"
+          <pre><code><s-alert
+  type="success"
+  message="这是一个可关闭的成功提示"
   closable
-  @close="handleClose"
-/&gt;</code></pre>
+/></code></pre>
         </div>
       </section>
 
@@ -108,17 +141,79 @@
         </div>
         <div class="demo-showcase">
           <div class="alert-group">
-            <s-alert text="带图标的成功提示" />
-            <s-alert text="带图标的信息提示" />
-            <s-alert text="带图标的警告提示" />
-            <s-alert text="带图标的错误提示" />
+            <s-alert
+              type="success"
+              message="带图标的成功提示"
+              show-icon
+            />
+            <s-alert
+              type="info"
+              message="带图标的信息提示"
+              show-icon
+            />
+            <s-alert
+              type="warning"
+              message="带图标的警告提示"
+              show-icon
+            />
+            <s-alert
+              type="error"
+              message="带图标的错误提示"
+              show-icon
+            />
           </div>
         </div>
         <div class="code-block">
-          <pre><code>&lt;SAlert text="带图标的成功提示" show-icon /&gt;
-&lt;SAlert text="带图标的信息提示" show-icon /&gt;
-&lt;SAlert text="带图标的警告提示" show-icon /&gt;
-&lt;SAlert text="带图标的错误提示" show-icon /&gt;</code></pre>
+          <pre><code><s-alert type="success" message="带图标的成功提示" show-icon />
+<s-alert type="info" message="带图标的信息提示" show-icon />
+<s-alert type="warning" message="带图标的警告提示" show-icon />
+<s-alert type="error" message="带图标的错误提示" show-icon /></code></pre>
+        </div>
+      </section>
+
+      <!-- 带有描述 -->
+      <section class="demo-section">
+        <div class="section-header">
+          <h3>带有描述</h3>
+          <p>可以添加详细描述信息</p>
+        </div>
+        <div class="demo-showcase">
+          <div class="alert-group">
+            <s-alert
+              type="success"
+              message="操作成功"
+              description="您的操作已经成功完成，系统已自动保存相关数据。"
+              show-icon
+            />
+            <s-alert
+              type="info"
+              message="系统通知"
+              description="系统将在今晚 23:00 - 01:00 进行维护，期间可能会影响部分功能的使用。"
+              show-icon
+            />
+            <s-alert
+              type="warning"
+              message="注意事项"
+              description="请确保在提交前仔细检查所有信息，提交后将无法修改。"
+              show-icon
+              closable
+            />
+            <s-alert
+              type="error"
+              message="操作失败"
+              description="网络连接异常，请检查您的网络设置后重试。如问题持续存在，请联系技术支持。"
+              show-icon
+              closable
+            />
+          </div>
+        </div>
+        <div class="code-block">
+          <pre><code><s-alert
+  type="success"
+  message="操作成功"
+  description="您的操作已经成功完成，系统已自动保存相关数据。"
+  show-icon
+/></code></pre>
         </div>
       </section>
 
@@ -159,7 +254,11 @@
             v-if="dynamicAlert.show"
             class="dynamic-alert"
           >
-            <s-alert :text="dynamicAlert.text" />
+            <s-alert
+              :type="dynamicAlert.type"
+              :message="dynamicAlert.text"
+              show-icon
+            />
           </div>
         </div>
       </section>
@@ -168,7 +267,7 @@
 </template>
 
 <script setup lang="ts">
-import { SAlert, SButton } from '@saofeng-design/sui';
+import { SAlert, SButton } from '@saofeng-design/components';
 import { ref, reactive } from 'vue';
 
 import DemoNavigation from '../components/DemoNavigation.vue';
@@ -180,7 +279,11 @@ const showAlert2 = ref(true);
 const showAlert3 = ref(true);
 
 // 动态警告状态
-const dynamicAlert = reactive({
+const dynamicAlert = reactive<{
+  show: boolean;
+  text: string;
+  type: 'success' | 'info' | 'warning' | 'error';
+}>({
   show: false,
   text: '',
   type: 'info',
@@ -192,7 +295,10 @@ const resetAlerts = () => {
   showAlert3.value = true;
 };
 
-const showDynamicAlert = (text: string, type: string = 'info') => {
+const showDynamicAlert = (
+  text: string,
+  type: 'success' | 'info' | 'warning' | 'error' = 'info'
+) => {
   dynamicAlert.text = text;
   dynamicAlert.type = type;
   dynamicAlert.show = true;

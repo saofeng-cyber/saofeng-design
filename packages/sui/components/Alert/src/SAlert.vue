@@ -1,9 +1,9 @@
 <template>
-  <base-card
-    :variant="cardVariant"
-    :size="size"
+  <div
     :class="[
       ns.b(),
+      ns.m(type),
+      ns.m(size),
       {
         [ns.is('closable')]: closable,
         [ns.is('with-icon')]: showIcon || icon,
@@ -11,7 +11,6 @@
         [ns.is('banner')]: banner,
       },
     ]"
-    bordered
     @click="handleClick"
   >
     <div :class="ns.e('content')">
@@ -21,7 +20,7 @@
         :class="ns.e('icon')"
       >
         <slot name="icon">
-          <component :is="iconComponent" />
+          {{ iconComponent }}
         </slot>
       </div>
 
@@ -47,27 +46,22 @@
       </div>
 
       <!-- 关闭按钮 -->
-      <base-interactive
+      <button
         v-if="closable"
-        variant="text"
-        size="small"
         :class="ns.e('close')"
         @click="handleClose"
       >
         <slot name="close-text">
-          {{ closeText || '×' }}
+          {{ closeText || '✕' }}
         </slot>
-      </base-interactive>
+      </button>
     </div>
-  </base-card>
+  </div>
 </template>
 
 <script setup lang="ts">
 import { useNameSpace } from '@saofeng-design/hooks';
 import { computed } from 'vue';
-
-import BaseCard from '../../BaseCard/src/BaseCard.vue';
-import BaseInteractive from '../../BaseInteractive/src/BaseInteractive.vue';
 
 export interface AlertProps {
   /** 警告提示类型 */
@@ -109,14 +103,6 @@ const emit = defineEmits<{
 
 const ns = useNameSpace('alert');
 
-// 类型映射
-const variantMap = {
-  success: 'success',
-  info: 'info',
-  warning: 'warning',
-  error: 'danger',
-} as const;
-
 // 图标映射
 const iconMap = {
   success: '✓',
@@ -124,10 +110,6 @@ const iconMap = {
   warning: '⚠',
   error: '✕',
 };
-
-const cardVariant = computed(() => {
-  return variantMap[props.type] || 'info';
-});
 
 const iconComponent = computed(() => {
   if (props.icon) {
@@ -153,6 +135,54 @@ const handleClick = (event: MouseEvent) => {
 @alert-prefix: ~'@{namespace}-alert';
 
 .@{alert-prefix} {
+  // 基础样式
+  position: relative;
+  display: block;
+  padding: 8px 12px;
+  border-radius: @border-radius-base;
+  border: 1px solid;
+  font-size: @font-size-base;
+  line-height: @line-height-base;
+  transition: all @animation-duration-base @ease-in-out;
+  background: @white;
+  color: @text-color;
+
+  // 不同类型的样式
+  &--success {
+    background-color: #f6ffed;
+    border-color: #b7eb8f;
+    color: #52c41a;
+  }
+
+  &--info {
+    background-color: #e6f7ff;
+    border-color: #91d5ff;
+    color: #1890ff;
+  }
+
+  &--warning {
+    background-color: #fffbe6;
+    border-color: #ffe58f;
+    color: #faad14;
+  }
+
+  &--error {
+    background-color: #fff2f0;
+    border-color: #ffccc7;
+    color: #ff4d4f;
+  }
+
+  // 尺寸样式
+  &--small {
+    padding: 4px 8px;
+    font-size: @font-size-sm;
+  }
+
+  &--large {
+    padding: 12px 16px;
+    font-size: @font-size-lg;
+  }
+
   // 内容布局
   &__content {
     display: flex;
@@ -164,7 +194,6 @@ const handleClick = (event: MouseEvent) => {
     flex-shrink: 0;
     font-size: 16px;
     line-height: 1.5;
-    margin-top: 1px;
   }
 
   &__message-wrapper {
@@ -194,6 +223,10 @@ const handleClick = (event: MouseEvent) => {
     flex-shrink: 0;
     margin-left: 8px;
     opacity: 0.6;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background: none;
 
     &:hover {
       opacity: 1;

@@ -30,7 +30,7 @@
 </template>
 
 <script setup>
-import { SButton } from '@saofeng-design/components'
+import { SButton } from '@saofeng-design/components';
 </script>
 ```
 
@@ -54,9 +54,21 @@ import { SButton } from '@saofeng-design/components'
 ```vue
 <template>
   <div>
-    <SButton type="primary" size="large">大型按钮</SButton>
-    <SButton type="primary" size="medium">中型按钮</SButton>
-    <SButton type="primary" size="small">小型按钮</SButton>
+    <SButton
+      type="primary"
+      size="large"
+      >大型按钮</SButton
+    >
+    <SButton
+      type="primary"
+      size="medium"
+      >中型按钮</SButton
+    >
+    <SButton
+      type="primary"
+      size="small"
+      >小型按钮</SButton
+    >
   </div>
 </template>
 ```
@@ -82,10 +94,26 @@ import { SButton } from '@saofeng-design/components'
 ```vue
 <template>
   <div>
-    <SButton type="primary" disabled>主要按钮</SButton>
-    <SButton type="default" disabled>默认按钮</SButton>
-    <SButton type="dashed" disabled>虚线按钮</SButton>
-    <SButton type="text" disabled>文本按钮</SButton>
+    <SButton
+      type="primary"
+      disabled
+      >主要按钮</SButton
+    >
+    <SButton
+      type="default"
+      disabled
+      >默认按钮</SButton
+    >
+    <SButton
+      type="dashed"
+      disabled
+      >虚线按钮</SButton
+    >
+    <SButton
+      type="text"
+      disabled
+      >文本按钮</SButton
+    >
   </div>
 </template>
 ```
@@ -115,8 +143,16 @@ import { SButton } from '@saofeng-design/components'
 ```vue
 <template>
   <div>
-    <SButton type="primary" loading>加载中</SButton>
-    <SButton type="default" loading>加载中</SButton>
+    <SButton
+      type="primary"
+      loading
+      >加载中</SButton
+    >
+    <SButton
+      type="default"
+      loading
+      >加载中</SButton
+    >
   </div>
 </template>
 ```
@@ -149,9 +185,21 @@ import { SButton } from '@saofeng-design/components'
 ```vue
 <template>
   <div>
-    <SButton type="primary" icon="search">搜索</SButton>
-    <SButton type="default" icon="folder">文件夹</SButton>
-    <SButton type="primary" circle icon="plus" />
+    <SButton
+      type="primary"
+      icon="search"
+      >搜索</SButton
+    >
+    <SButton
+      type="default"
+      icon="folder"
+      >文件夹</SButton
+    >
+    <SButton
+      type="primary"
+      circle
+      icon="plus"
+    />
   </div>
 </template>
 ```
@@ -177,8 +225,16 @@ import { SButton } from '@saofeng-design/components'
 <template>
   <div>
     <SButton type="primary">默认按钮</SButton>
-    <SButton type="primary" round>圆角按钮</SButton>
-    <SButton type="primary" circle>圆</SButton>
+    <SButton
+      type="primary"
+      round
+      >圆角按钮</SButton
+    >
+    <SButton
+      type="primary"
+      circle
+      >圆</SButton
+    >
   </div>
 </template>
 ```
@@ -206,8 +262,16 @@ import { SButton } from '@saofeng-design/components'
 ```vue
 <template>
   <div>
-    <SButton type="primary" block>块级按钮</SButton>
-    <SButton type="default" block>块级按钮</SButton>
+    <SButton
+      type="primary"
+      block
+      >块级按钮</SButton
+    >
+    <SButton
+      type="default"
+      block
+      >块级按钮</SButton
+    >
   </div>
 </template>
 ```
@@ -219,35 +283,35 @@ import { SButton } from '@saofeng-design/components'
 
 ### Button Props
 
-| 参数 | 说明 | 类型 | 默认值 |
-|------|------|------|--------|
-| type | 设置按钮类型 | `'primary' \| 'default' \| 'dashed' \| 'text' \| 'link'` | `'default'` |
-| size | 设置按钮大小 | `'large' \| 'medium' \| 'small'` | `'medium'` |
-| disabled | 按钮失效状态 | `boolean` | `false` |
-| loading | 设置按钮载入状态 | `boolean` | `false` |
-| icon | 设置按钮的图标组件 | `string` | - |
-| round | 设置按钮为圆角 | `boolean` | `false` |
-| circle | 设置按钮为圆形 | `boolean` | `false` |
-| block | 将按钮宽度调整为其父宽度的选项 | `boolean` | `false` |
-| plain | 设置按钮为朴素按钮 | `boolean` | `false` |
-| ghost | 设置按钮为幽灵按钮 | `boolean` | `false` |
-| danger | 设置危险按钮 | `boolean` | `false` |
-| href | 点击跳转的地址，指定此属性 button 的行为和 a 链接一致 | `string` | - |
-| target | 相当于 a 链接的 target 属性，href 存在时生效 | `string` | - |
-| htmlType | 设置 button 原生的 type 值 | `'submit' \| 'reset' \| 'button'` | `'button'` |
+| 参数     | 说明                                                  | 类型                                                     | 默认值      |
+| -------- | ----------------------------------------------------- | -------------------------------------------------------- | ----------- |
+| type     | 设置按钮类型                                          | `'primary' \| 'default' \| 'dashed' \| 'text' \| 'link'` | `'default'` |
+| size     | 设置按钮大小                                          | `'large' \| 'medium' \| 'small'`                         | `'medium'`  |
+| disabled | 按钮失效状态                                          | `boolean`                                                | `false`     |
+| loading  | 设置按钮载入状态                                      | `boolean`                                                | `false`     |
+| icon     | 设置按钮的图标组件                                    | `string`                                                 | -           |
+| round    | 设置按钮为圆角                                        | `boolean`                                                | `false`     |
+| circle   | 设置按钮为圆形                                        | `boolean`                                                | `false`     |
+| block    | 将按钮宽度调整为其父宽度的选项                        | `boolean`                                                | `false`     |
+| plain    | 设置按钮为朴素按钮                                    | `boolean`                                                | `false`     |
+| ghost    | 设置按钮为幽灵按钮                                    | `boolean`                                                | `false`     |
+| danger   | 设置危险按钮                                          | `boolean`                                                | `false`     |
+| href     | 点击跳转的地址，指定此属性 button 的行为和 a 链接一致 | `string`                                                 | -           |
+| target   | 相当于 a 链接的 target 属性，href 存在时生效          | `string`                                                 | -           |
+| htmlType | 设置 button 原生的 type 值                            | `'submit' \| 'reset' \| 'button'`                        | `'button'`  |
 
 ### Button Events
 
-| 事件名 | 说明 | 回调参数 |
-|--------|------|----------|
-| click | 点击按钮时的回调 | `(event: MouseEvent) => void` |
+| 事件名 | 说明             | 回调参数                      |
+| ------ | ---------------- | ----------------------------- |
+| click  | 点击按钮时的回调 | `(event: MouseEvent) => void` |
 
 ### Button Slots
 
-| 插槽名 | 说明 |
-|--------|------|
-| default | 按钮内容 |
-| icon | 自定义图标 |
+| 插槽名  | 说明       |
+| ------- | ---------- |
+| default | 按钮内容   |
+| icon    | 自定义图标 |
 
 ## 主题定制
 
@@ -255,19 +319,19 @@ import { SButton } from '@saofeng-design/components'
 
 组件提供了下列 CSS 变量，可用于自定义样式。
 
-| 名称 | 默认值 | 说明 |
-|------|--------|------|
-| `--s-button-height-large` | `40px` | 大型按钮高度 |
-| `--s-button-height-medium` | `32px` | 中型按钮高度 |
-| `--s-button-height-small` | `24px` | 小型按钮高度 |
-| `--s-button-padding-large` | `0 16px` | 大型按钮内边距 |
-| `--s-button-padding-medium` | `0 12px` | 中型按钮内边距 |
-| `--s-button-padding-small` | `0 8px` | 小型按钮内边距 |
-| `--s-button-font-size-large` | `16px` | 大型按钮字体大小 |
-| `--s-button-font-size-medium` | `14px` | 中型按钮字体大小 |
-| `--s-button-font-size-small` | `12px` | 小型按钮字体大小 |
-| `--s-button-border-radius` | `6px` | 按钮圆角 |
-| `--s-button-border-width` | `1px` | 按钮边框宽度 |
+| 名称                          | 默认值   | 说明             |
+| ----------------------------- | -------- | ---------------- |
+| `--s-button-height-large`     | `40px`   | 大型按钮高度     |
+| `--s-button-height-medium`    | `32px`   | 中型按钮高度     |
+| `--s-button-height-small`     | `24px`   | 小型按钮高度     |
+| `--s-button-padding-large`    | `0 16px` | 大型按钮内边距   |
+| `--s-button-padding-medium`   | `0 12px` | 中型按钮内边距   |
+| `--s-button-padding-small`    | `0 8px`  | 小型按钮内边距   |
+| `--s-button-font-size-large`  | `16px`   | 大型按钮字体大小 |
+| `--s-button-font-size-medium` | `14px`   | 中型按钮字体大小 |
+| `--s-button-font-size-small`  | `12px`   | 小型按钮字体大小 |
+| `--s-button-border-radius`    | `6px`    | 按钮圆角         |
+| `--s-button-border-width`     | `1px`    | 按钮边框宽度     |
 
 ### Less 变量
 
@@ -313,11 +377,12 @@ import { SButton } from '@saofeng-design/components'
 - 小号按钮：用于次要操作，如表格中的操作按钮。
 
 ::: tip 💡 设计建议
+
 - 避免在一个操作区域放置过多的主按钮
 - 按钮的文案要简洁明了，能够清楚地表达操作意图
 - 相关的按钮应该放在一起，并保持一致的间距
 - 在移动端使用时，建议使用较大的按钮尺寸以便于点击
-:::
+  :::
 
 <style>
 .demo-container {

@@ -7,53 +7,6 @@
 
     <!-- 内容区域 -->
     <main class="demo-content">
-      <!-- BaseCard 组件演示 -->
-      <section class="demo-section">
-        <div class="section-header">
-          <h2>BaseCard 基础卡片</h2>
-        </div>
-        <p class="section-description">提供统一的卡片样式和交互行为</p>
-
-        <div class="demo-showcase">
-          <div class="card-group">
-            <s-base-card
-              variant="default"
-              bordered
-            >
-              <h3>默认卡片</h3>
-              <p>这是一个默认样式的卡片</p>
-            </s-base-card>
-
-            <s-base-card
-              variant="primary"
-              bordered
-              shadow
-            >
-              <h3>主要卡片</h3>
-              <p>这是一个主要样式的卡片，带阴影</p>
-            </s-base-card>
-
-            <s-base-card
-              variant="success"
-              bordered
-              hoverable
-            >
-              <h3>成功卡片</h3>
-              <p>这是一个成功样式的卡片，可悬停</p>
-            </s-base-card>
-
-            <s-base-card
-              variant="warning"
-              bordered
-              size="small"
-            >
-              <h3>警告卡片</h3>
-              <p>这是一个小尺寸的警告卡片</p>
-            </s-base-card>
-          </div>
-        </div>
-      </section>
-
       <!-- BaseInteractive 组件演示 -->
       <section class="demo-section">
         <div class="section-header">
@@ -121,7 +74,7 @@
 
             <!-- 使用新的 Alert 组件 -->
             <div class="alert-examples">
-              <h3>Alert 组件（基于 BaseCard）</h3>
+              <h3>Alert 组件（独立样式系统）</h3>
               <div class="alert-group">
                 <s-alert
                   type="success"
@@ -156,7 +109,7 @@
 </template>
 
 <script setup lang="ts">
-import { SButton, SAlert, SBaseCard, SBaseInteractive } from '@saofeng-design/sui';
+import { SButton, SAlert } from '@saofeng-design/components';
 </script>
 
 <style lang="less" scoped>

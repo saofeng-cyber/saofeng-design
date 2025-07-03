@@ -176,7 +176,7 @@
 </template>
 
 <script setup lang="ts">
-import { SButton } from '@saofeng-design/sui';
+import { SButton } from '@saofeng-design/components';
 import { ref } from 'vue';
 
 import DemoNavigation from '../components/DemoNavigation.vue';
