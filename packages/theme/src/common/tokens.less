@@ -1,0 +1,200 @@
+// Saofeng Design 设计令牌 Less 变量定义
+// 基于 CSS 变量生成的 Less 变量，用于组件样式开发
+@namespace: s;
+
+// ==================== 颜色变量 ====================
+
+// 主色调
+@primary-color: var(--s-color-primary);
+@primary-color-hover: var(--s-color-primary-hover);
+@primary-color-active: var(--s-color-primary-active);
+@primary-color-outline: var(--s-color-primary-outline);
+@primary-color-light: var(--s-color-primary-light);
+@primary-color-lighter: var(--s-color-primary-lighter);
+
+// 功能色 - 成功
+@success-color: var(--s-color-success);
+@success-color-hover: var(--s-color-success-hover);
+@success-color-active: var(--s-color-success-active);
+@success-color-outline: var(--s-color-success-outline);
+@success-color-light: var(--s-color-success-light);
+@success-color-lighter: var(--s-color-success-lighter);
+
+// 功能色 - 警告
+@warning-color: var(--s-color-warning);
+@warning-color-hover: var(--s-color-warning-hover);
+@warning-color-active: var(--s-color-warning-active);
+@warning-color-outline: var(--s-color-warning-outline);
+@warning-color-light: var(--s-color-warning-light);
+@warning-color-lighter: var(--s-color-warning-lighter);
+
+// 功能色 - 危险
+@danger-color: var(--s-color-danger);
+@danger-color-hover: var(--s-color-danger-hover);
+@danger-color-active: var(--s-color-danger-active);
+@danger-color-outline: var(--s-color-danger-outline);
+@danger-color-light: var(--s-color-danger-light);
+@danger-color-lighter: var(--s-color-danger-lighter);
+
+// 功能色 - 信息
+@info-color: var(--s-color-info);
+@info-color-hover: var(--s-color-info-hover);
+@info-color-active: var(--s-color-info-active);
+@info-color-outline: var(--s-color-info-outline);
+@info-color-light: var(--s-color-info-light);
+@info-color-lighter: var(--s-color-info-lighter);
+
+// 中性色
+@white: var(--s-color-white);
+@black: var(--s-color-black);
+@gray-1: var(--s-color-gray-1);
+@gray-2: var(--s-color-gray-2);
+@gray-3: var(--s-color-gray-3);
+@gray-4: var(--s-color-gray-4);
+@gray-5: var(--s-color-gray-5);
+@gray-6: var(--s-color-gray-6);
+@gray-7: var(--s-color-gray-7);
+@gray-8: var(--s-color-gray-8);
+@gray-9: var(--s-color-gray-9);
+@gray-10: var(--s-color-gray-10);
+
+// 文本颜色
+@text-color: var(--s-color-text-primary);
+@text-color-primary: var(--s-color-text-primary);
+@text-color-secondary: var(--s-color-text-secondary);
+@text-color-tertiary: var(--s-color-text-tertiary);
+@text-color-quaternary: var(--s-color-text-quaternary);
+@text-color-inverse: var(--s-color-text-inverse);
+
+// 链接颜色
+@link-color: var(--s-color-link);
+@link-color-hover: var(--s-color-link-hover);
+@link-color-active: var(--s-color-link-active);
+
+// 边框颜色
+@border-color: var(--s-color-border);
+@border-color-split: var(--s-color-border-split);
+@border-color-inverse: var(--s-color-border-inverse);
+
+// 边框宽度
+@border-width-base: var(--s-size-border-width-base);
+
+// 边框样式
+
+@border-style-base: solid;
+@border-style-split: dashed;
+@border-style-inverse: double;
+@border-style-none: none;
+
+// 背景颜色
+@background-color-light: var(--s-color-background-light);
+@background-color-base: var(--s-color-background-base);
+@background-color-dark: var(--s-color-background-dark);
+
+// 禁用状态颜色
+@disabled-color: var(--s-color-disabled);
+@disabled-bg: var(--s-color-disabled-bg);
+@disabled-border: var(--s-color-disabled-border);
+
+// ==================== 字体变量 ====================
+
+// 字体族
+@font-family: var(--s-font-family);
+@font-family-code: var(--s-font-family-code);
+
+// 字体大小
+@font-size-base: var(--s-font-size-base);
+@font-size-sm: var(--s-font-size-sm);
+@font-size-lg: var(--s-font-size-lg);
+@font-size-xl: var(--s-font-size-xl);
+
+// 行高
+@line-height-base: var(--s-font-line-height-base);
+
+// 字重
+@font-weight-light: var(--s-font-weight-light);
+@font-weight-normal: var(--s-font-weight-normal);
+@font-weight-medium: var(--s-font-weight-medium);
+@font-weight-semibold: var(--s-font-weight-semibold);
+@font-weight-bold: var(--s-font-weight-bold);
+
+// ==================== 尺寸变量 ====================
+
+// 间距 - 内边距
+@padding-xs: var(--s-size-padding-xs);
+@padding-sm: var(--s-size-padding-sm);
+@padding-md: var(--s-size-padding-md);
+@padding-lg: var(--s-size-padding-lg);
+@padding-xl: var(--s-size-padding-xl);
+
+// 间距 - 外边距
+@margin-xs: var(--s-size-margin-xs);
+@margin-sm: var(--s-size-margin-sm);
+@margin-md: var(--s-size-margin-md);
+@margin-lg: var(--s-size-margin-lg);
+@margin-xl: var(--s-size-margin-xl);
+
+// 组件高度
+@height-base: var(--s-size-height-base);
+@height-lg: var(--s-size-height-lg);
+@height-sm: var(--s-size-height-sm);
+
+// 圆角
+@border-radius-base: var(--s-size-border-radius-base);
+@border-radius-sm: var(--s-size-border-radius-sm);
+@border-radius-lg: var(--s-size-border-radius-lg);
+
+// ==================== 阴影变量 ====================
+
+@shadow-base: var(--s-shadow-base);
+@shadow-popover: var(--s-shadow-popover);
+@shadow-card: var(--s-shadow-card);
+
+// ==================== 动画变量 ====================
+
+// 动画时长
+@animation-duration-slow: var(--s-animation-duration-slow);
+@animation-duration-base: var(--s-animation-duration-base);
+@animation-duration-fast: var(--s-animation-duration-fast);
+
+// 动画曲线
+@ease-base-out: var(--s-animation-ease-base-out);
+@ease-base-in: var(--s-animation-ease-base-in);
+@ease-out: var(--s-animation-ease-out);
+@ease-in: var(--s-animation-ease-in);
+@ease-in-out: var(--s-animation-ease-in-out);
+@ease-out-back: var(--s-animation-ease-out-back);
+@ease-in-back: var(--s-animation-ease-in-back);
+@ease-in-out-back: var(--s-animation-ease-in-out-back);
+@ease-out-circ: var(--s-animation-ease-out-circ);
+@ease-in-circ: var(--s-animation-ease-in-circ);
+@ease-in-out-circ: var(--s-animation-ease-in-out-circ);
+@ease-out-quint: var(--s-animation-ease-out-quint);
+@ease-in-quint: var(--s-animation-ease-in-quint);
+@ease-in-out-quint: var(--s-animation-ease-in-out-quint);
+
+// ==================== Z-Index 变量 ====================
+
+@z-index-base: var(--s-z-index-base);
+@z-index-affix: var(--s-z-index-affix);
+@z-index-back-top: var(--s-z-index-back-top);
+@z-index-picker-panel: var(--s-z-index-picker-panel);
+@z-index-popup-close: var(--s-z-index-popup-close);
+@z-index-modal: var(--s-z-index-modal);
+@z-index-notification: var(--s-z-index-notification);
+@z-index-message: var(--s-z-index-message);
+@z-index-popover: var(--s-z-index-popover);
+@z-index-dropdown: var(--s-z-index-dropdown);
+@z-index-picker: var(--s-z-index-picker);
+@z-index-popoconfirm: var(--s-z-index-popoconfirm);
+@z-index-tooltip: var(--s-z-index-tooltip);
+@z-index-image: var(--s-z-index-image);
+
+// ==================== 断点变量 ====================
+
+@breakpoint-xs: var(--s-breakpoint-xs);
+@breakpoint-sm: var(--s-breakpoint-sm);
+@breakpoint-md: var(--s-breakpoint-md);
+@breakpoint-lg: var(--s-breakpoint-lg);
+@breakpoint-xl: var(--s-breakpoint-xl);
+@breakpoint-xxl: var(--s-breakpoint-xxl);

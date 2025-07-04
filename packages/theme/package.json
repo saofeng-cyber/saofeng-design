@@ -8,15 +8,20 @@
   "types": "dist/index.d.ts",
   "files": [
     "dist",
-    "src",
     "package.json",
     "README.md"
   ],
   "scripts": {
-    "build": "unbuild --stub",
+    "build": "unbuild",
     "build:style": "lessc src/index.less dist/index.css",
-    "minify-css": "cssnano -c cssnano.config.ts dist/index.css dist/index.mini.css",
-    "prepublishOnly": "pnpm build && pnpm build:style"
+    "minify:css": "cssnano -c cssnano.config.ts dist/index.css dist/index.mini.css",
+    "build:all": "pnpm build && pnpm build:style && pnpm build:css-vars",
+    "prepublishOnly": "pnpm build:all",
+    "theme:publish": "pnpm publish"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.com/"
   },
   "keywords": [
     "saofeng-design",
@@ -27,8 +32,5 @@
     "design-system"
   ],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "postcss-cli": "^11.0.1"
-  }
+  "license": "ISC"
 }

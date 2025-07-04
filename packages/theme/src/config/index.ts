@@ -42,7 +42,7 @@ export function createThemeConfig(config: ThemeConfig = {}): Required<ThemeConfi
     tokens: {
       ...defaultTokens,
       ...config.tokens,
-    },
+    } as DesignTokens,
   };
 }
 
@@ -50,52 +50,170 @@ export function createThemeConfig(config: ThemeConfig = {}): Required<ThemeConfi
  * 生成 CSS 变量
  * @param tokens 设计令牌
  * @param prefix CSS 变量前缀
+ * @param options 生成选项
  * @returns CSS 变量字符串
  */
-export function generateCSSVariables(tokens: DesignTokens, prefix: string = 's'): string {
+export function generateCSSVariables(
+  tokens: DesignTokens,
+  prefix: string = 's',
+  options: {
+    includeDarkMode?: boolean;
+    format?: 'css' | 'less' | 'scss';
+    compress?: boolean;
+  } = {}
+): string {
+  const { includeDarkMode = true, compress = false } = options;
   const cssVars: string[] = [];
+  const indent = compress ? '' : '  ';
+  const lineBreak = compress ? '' : '\n';
+
+  // 添加注释（非压缩模式）
+  if (!compress) {
+    cssVars.push('// Saofeng Design CSS 变量定义');
+    cssVars.push('// 基于设计令牌生成的 CSS 变量，支持主题切换和运行时修改');
+    cssVars.push('');
+  }
+
+  cssVars.push(':root {');
 
   // 颜色变量
+  if (!compress) cssVars.push(`${indent}// ==================== 颜色变量 ====================`);
   Object.entries(tokens.colors).forEach(([key, value]) => {
     const varName = key.replace(/([A-Z])/g, '-$1').toLowerCase();
-    cssVars.push(`  --${prefix}-color-${varName}: ${value};`);
+    cssVars.push(`${indent}--${prefix}-color-${varName}: ${value};`);
   });
 
   // 字体变量
+  if (!compress)
+    cssVars.push(`${lineBreak}${indent}// ==================== 字体变量 ====================`);
   Object.entries(tokens.fonts).forEach(([key, value]) => {
     const varName = key.replace(/([A-Z])/g, '-$1').toLowerCase();
-    cssVars.push(`  --${prefix}-font-${varName}: ${value};`);
+    cssVars.push(`${indent}--${prefix}-font-${varName}: ${value};`);
   });
 
   // 尺寸变量
+  if (!compress)
+    cssVars.push(`${lineBreak}${indent}// ==================== 尺寸变量 ====================`);
   Object.entries(tokens.sizes).forEach(([key, value]) => {
     const varName = key.replace(/([A-Z])/g, '-$1').toLowerCase();
-    cssVars.push(`  --${prefix}-size-${varName}: ${value};`);
+    cssVars.push(`${indent}--${prefix}-size-${varName}: ${value};`);
   });
 
   // 阴影变量
+  if (!compress)
+    cssVars.push(`${lineBreak}${indent}// ==================== 阴影变量 ====================`);
   Object.entries(tokens.shadows).forEach(([key, value]) => {
-    cssVars.push(`  --${prefix}-shadow-${key}: ${value};`);
+    cssVars.push(`${indent}--${prefix}-shadow-${key}: ${value};`);
   });
 
   // 动画变量
+  if (!compress)
+    cssVars.push(`${lineBreak}${indent}// ==================== 动画变量 ====================`);
   Object.entries(tokens.animations).forEach(([key, value]) => {
     const varName = key.replace(/([A-Z])/g, '-$1').toLowerCase();
-    cssVars.push(`  --${prefix}-animation-${varName}: ${value};`);
+    cssVars.push(`${indent}--${prefix}-animation-${varName}: ${value};`);
   });
 
   // Z-index 变量
+  if (!compress)
+    cssVars.push(`${lineBreak}${indent}// ==================== Z-Index 变量 ====================`);
   Object.entries(tokens.zIndex).forEach(([key, value]) => {
     const varName = key.replace(/([A-Z])/g, '-$1').toLowerCase();
-    cssVars.push(`  --${prefix}-z-index-${varName}: ${value};`);
+    cssVars.push(`${indent}--${prefix}-z-index-${varName}: ${value};`);
   });
 
   // 断点变量
+  if (!compress)
+    cssVars.push(`${lineBreak}${indent}// ==================== 断点变量 ====================`);
   Object.entries(tokens.breakpoints).forEach(([key, value]) => {
-    cssVars.push(`  --${prefix}-breakpoint-${key}: ${value};`);
+    cssVars.push(`${indent}--${prefix}-breakpoint-${key}: ${value};`);
   });
 
-  return `:root {\n${cssVars.join('\n')}\n}`;
+  cssVars.push('}');
+
+  // 暗色模式变量
+  if (includeDarkMode) {
+    if (!compress) {
+      cssVars.push('');
+      cssVars.push('// ==================== 暗色模式变量 ====================');
+      cssVars.push('');
+    }
+    cssVars.push("[data-theme='dark'] {");
+
+    // 生成暗色模式的颜色变量
+    const darkColors = generateDarkModeColors(tokens.colors);
+    Object.entries(darkColors).forEach(([key, value]) => {
+      const varName = key.replace(/([A-Z])/g, '-$1').toLowerCase();
+      cssVars.push(`${indent}--${prefix}-color-${varName}: ${value};`);
+    });
+
+    cssVars.push('}');
+  }
+
+  return cssVars.join(lineBreak);
+}
+
+/**
+ * 生成暗色模式颜色
+ */
+function generateDarkModeColors(lightColors: any): any {
+  const darkColors: any = {};
+
+  // 保持功能色不变
+  const functionalColors = ['primary', 'success', 'warning', 'danger', 'info'];
+  functionalColors.forEach(color => {
+    Object.keys(lightColors).forEach(key => {
+      if (key.startsWith(color)) {
+        darkColors[key] = lightColors[key];
+      }
+    });
+  });
+
+  // 反转中性色
+  const grayMapping: Record<string, string> = {
+    white: '#000000',
+    black: '#ffffff',
+    gray50: '#1f1f1f',
+    gray100: '#262626',
+    gray200: '#434343',
+    gray300: '#595959',
+    gray400: '#8c8c8c',
+    gray500: '#bfbfbf',
+    gray600: '#d9d9d9',
+    gray700: '#f0f0f0',
+    gray800: '#f5f5f5',
+    gray900: '#fafafa',
+  };
+
+  Object.entries(grayMapping).forEach(([key, value]) => {
+    if (lightColors[key]) {
+      darkColors[key] = value;
+    }
+  });
+
+  // 文本颜色
+  if (lightColors.textPrimary) darkColors.textPrimary = 'rgba(255, 255, 255, 0.88)';
+  if (lightColors.textSecondary) darkColors.textSecondary = 'rgba(255, 255, 255, 0.65)';
+  if (lightColors.textTertiary) darkColors.textTertiary = 'rgba(255, 255, 255, 0.45)';
+  if (lightColors.textQuaternary) darkColors.textQuaternary = 'rgba(255, 255, 255, 0.25)';
+  if (lightColors.textInverse) darkColors.textInverse = '#000000';
+
+  // 边框颜色
+  if (lightColors.border) darkColors.border = '#434343';
+  if (lightColors.borderSplit) darkColors.borderSplit = '#262626';
+  if (lightColors.borderInverse) darkColors.borderInverse = '#000000';
+
+  // 背景颜色
+  if (lightColors.backgroundLight) darkColors.backgroundLight = '#262626';
+  if (lightColors.backgroundBase) darkColors.backgroundBase = '#1f1f1f';
+  if (lightColors.backgroundDark) darkColors.backgroundDark = '#141414';
+
+  // 禁用状态颜色
+  if (lightColors.disabled) darkColors.disabled = 'rgba(255, 255, 255, 0.25)';
+  if (lightColors.disabledBg) darkColors.disabledBg = '#262626';
+  if (lightColors.disabledBorder) darkColors.disabledBorder = '#434343';
+
+  return darkColors;
 }
 
 /**
@@ -152,9 +270,9 @@ export const darkTokens: Partial<DesignTokens> = {
     textInverse: '#000000',
 
     // 链接颜色保持不变
-    link: '#1890ff',
-    linkHover: '#40a9ff',
-    linkActive: '#096dd9',
+    link: '#18a058',
+    linkHover: '#36b96a',
+    linkActive: '#14874a',
 
     // 边框颜色调整
     border: '#434343',

@@ -1,9 +1,11 @@
 <script setup lang="ts">
-// 使用路由视图，不需要导入具体组件
+import Navigation from './components/Navigation.vue';
 </script>
 
 <template>
   <div class="app-container">
+    <!-- 导航栏 -->
+    <navigation />
     <!-- 路由视图 -->
     <router-view />
   </div>

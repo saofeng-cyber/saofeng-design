@@ -109,7 +109,7 @@
 </template>
 
 <script setup lang="ts">
-import { SButton, SAlert } from '@saofeng-design/components';
+import { SButton, SAlert } from '@saofeng-design/sui';
 </script>
 
 <style lang="less" scoped>

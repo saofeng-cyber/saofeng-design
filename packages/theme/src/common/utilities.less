@@ -374,7 +374,7 @@
 }
 
 .text-color-primary {
-  color: @primary-color;
+  color: @text-color;
 }
 .text-color-success {
   color: @success-color;
@@ -391,7 +391,7 @@
 
 // 字体大小
 .text-xs {
-  font-size: @font-size-sm - 2px;
+  font-size: calc(var(--s-font-size-sm) - 2px);
 }
 .text-sm {
   font-size: @font-size-sm;

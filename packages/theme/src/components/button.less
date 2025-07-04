@@ -1,0 +1,681 @@
+// 导入主题设计令牌
+@import '../common/tokens.less';
+
+// Button 组件样式变量
+@button-prefix: ~'@{namespace}-button';
+
+// ==================== 基础变量 ====================
+
+// 边框
+@btn-border-width: @border-width-base;
+@btn-border-style: @border-style-base;
+
+// 阴影
+@btn-shadow: @shadow-base;
+
+// 按钮圆角
+@btn-border-radius-base: @border-radius-base;
+@btn-border-radius-sm: @border-radius-sm;
+@btn-border-radius-lg: @border-radius-lg;
+
+// 按钮高度
+@btn-height-base: @height-base;
+@btn-height-lg: @height-lg;
+@btn-height-sm: @height-sm;
+
+// 字体
+@btn-font-weight: @font-weight-medium;
+@btn-font-size-base: @font-size-base;
+@btn-font-size-lg: @font-size-lg;
+@btn-font-size-sm: @font-size-sm;
+
+// 内边距
+@btn-padding-horizontal-base: @padding-md;
+@btn-padding-horizontal-lg: @padding-lg;
+@btn-padding-horizontal-sm: @padding-sm;
+
+// 动画
+@btn-transition: all @animation-duration-base @ease-in-out;
+
+// 图标间距
+@btn-icon-margin: @margin-xs;
+
+// ==================== 默认按钮变量 ====================
+
+@btn-default-color: @text-color;
+@btn-default-bg: @white;
+@btn-default-border: @border-color;
+@btn-default-hover-color: @primary-color;
+@btn-default-hover-bg: @white;
+@btn-default-hover-border: @primary-color;
+@btn-default-active-color: @primary-color-active;
+@btn-default-active-bg: @white;
+@btn-default-active-border: @primary-color-active;
+
+// ==================== 主要按钮变量 ====================
+
+@btn-primary-color: @white;
+@btn-primary-bg: @primary-color;
+@btn-primary-border: @primary-color;
+@btn-primary-shadow: 0 2px 0 rgba(24, 160, 88, 0.1);
+@btn-primary-hover-bg: @primary-color-hover;
+@btn-primary-hover-border: @primary-color-hover;
+@btn-primary-active-bg: @primary-color-active;
+@btn-primary-active-border: @primary-color-active;
+
+// ==================== 成功按钮变量 ====================
+
+@btn-success-color: @white;
+@btn-success-bg: @success-color;
+@btn-success-border: @success-color;
+@btn-success-hover-bg: @success-color-hover;
+@btn-success-hover-border: @success-color-hover;
+@btn-success-active-bg: @success-color-active;
+@btn-success-active-border: @success-color-active;
+
+// ==================== 警告按钮变量 ====================
+
+@btn-warning-color: @white;
+@btn-warning-bg: @warning-color;
+@btn-warning-border: @warning-color;
+@btn-warning-hover-bg: @warning-color-hover;
+@btn-warning-hover-border: @warning-color-hover;
+@btn-warning-active-bg: @warning-color-active;
+@btn-warning-active-border: @warning-color-active;
+
+// ==================== 危险按钮变量 ====================
+
+@btn-danger-color: @white;
+@btn-danger-bg: @danger-color;
+@btn-danger-border: @danger-color;
+@btn-danger-hover-bg: @danger-color-hover;
+@btn-danger-hover-border: @danger-color-hover;
+@btn-danger-active-bg: @danger-color-active;
+@btn-danger-active-border: @danger-color-active;
+
+// ==================== 信息按钮变量 ====================
+
+@btn-info-color: @white;
+@btn-info-bg: @info-color;
+@btn-info-border: @info-color;
+@btn-info-hover-bg: @info-color-hover;
+@btn-info-hover-border: @info-color-hover;
+@btn-info-active-bg: @info-color-active;
+@btn-info-active-border: @info-color-active;
+
+// ==================== 文本按钮变量 ====================
+
+@btn-text-hover-bg: @gray-1;
+@btn-text-active-bg: @gray-2;
+
+// ==================== 禁用状态变量 ====================
+
+@btn-disable-color: @disabled-color;
+@btn-disable-bg: @disabled-bg;
+@btn-disable-border: @disabled-border;
+
+// ==================== 圆形按钮变量 ====================
+
+@btn-circle-size: @btn-height-base;
+@btn-circle-size-lg: @btn-height-lg;
+@btn-circle-size-sm: @btn-height-sm;
+
+// ==================== 基础按钮样式 ====================
+
+.@{button-prefix} {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: @btn-font-weight;
+  font-size: @btn-font-size-base;
+  line-height: 1.5715;
+  white-space: nowrap;
+  text-align: center;
+  background-image: none;
+  border: @btn-border-width @btn-border-style @btn-default-border;
+  border-radius: @btn-border-radius-base;
+  box-shadow: @btn-shadow;
+  cursor: pointer;
+  transition: @btn-transition;
+  user-select: none;
+  touch-action: manipulation;
+  height: @btn-height-base;
+  padding: 0 @btn-padding-horizontal-base;
+  color: @btn-default-color;
+  background: @btn-default-bg;
+  text-decoration: none;
+
+  // 悬停状态
+  &:hover,
+  &:focus {
+    color: @btn-default-hover-color;
+    background: @btn-default-hover-bg;
+    border-color: @btn-default-hover-border;
+    outline: 0;
+    text-decoration: none;
+    z-index: 1;
+  }
+
+  // 激活状态
+  &:active {
+    color: @btn-default-active-color;
+    background: @btn-default-active-bg;
+    border-color: @btn-default-active-border;
+    outline: 0;
+    transform: translateY(1px);
+  }
+
+  // 禁用状态
+  &.is-disabled,
+  &:disabled {
+    color: @btn-disable-color !important;
+    background: @btn-disable-bg !important;
+    border-color: @btn-disable-border !important;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: @btn-disable-color !important;
+      background: @btn-disable-bg !important;
+      border-color: @btn-disable-border !important;
+      transform: none;
+    }
+  }
+
+  // 加载状态
+  &.is-loading {
+    position: relative;
+    pointer-events: none;
+
+    &::before {
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      bottom: -1px;
+      right: -1px;
+      background: rgba(255, 255, 255, 0.35);
+      border-radius: inherit;
+      content: '';
+      z-index: 1;
+    }
+  }
+
+  // 按钮内部元素
+  &__loading {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: @btn-icon-margin;
+    line-height: 1;
+  }
+
+  &__loading-icon {
+    width: @btn-font-size-base;
+    height: @btn-font-size-base;
+    animation: button-loading-spin 1s infinite linear;
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: @btn-icon-margin;
+    line-height: 1;
+    font-size: inherit;
+  }
+
+  &__text {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+  }
+
+  // 只有图标时的样式
+  &__icon:only-child,
+  &__loading:only-child {
+    margin-right: 0;
+  }
+
+  // 图标在右侧时
+  &__text + &__icon {
+    margin-right: 0;
+    margin-left: @btn-icon-margin;
+  }
+}
+
+// ==================== 按钮类型样式 ====================
+
+// 主要按钮
+.@{button-prefix}--primary {
+  color: @btn-primary-color;
+  background: @btn-primary-bg;
+  border-color: @btn-primary-border;
+  box-shadow: @btn-primary-shadow;
+
+  &:hover,
+  &:focus {
+    color: @btn-primary-color;
+    background: @btn-primary-hover-bg;
+    border-color: @btn-primary-hover-border;
+    box-shadow: 0 4px 8px rgba(24, 160, 88, 0.2);
+  }
+
+  &:active {
+    color: @btn-primary-color;
+    background: @btn-primary-active-bg;
+    border-color: @btn-primary-active-border;
+    box-shadow: 0 2px 4px rgba(24, 160, 88, 0.15);
+  }
+
+  // 朴素样式
+  &.is-plain {
+    color: @primary-color;
+    background: @btn-default-bg;
+    border-color: @primary-color;
+    box-shadow: none;
+
+    &:hover,
+    &:focus {
+      color: @btn-primary-color;
+      background: @primary-color;
+      border-color: @primary-color;
+    }
+
+    &:active {
+      color: @btn-primary-color;
+      background: @primary-color-active;
+      border-color: @primary-color-active;
+    }
+  }
+}
+
+// 成功按钮
+.@{button-prefix}--success {
+  color: @btn-success-color;
+  background: @btn-success-bg;
+  border-color: @btn-success-border;
+  box-shadow: 0 2px 0 rgba(82, 196, 26, 0.1);
+
+  &:hover,
+  &:focus {
+    color: @btn-success-color;
+    background: @btn-success-hover-bg;
+    border-color: @btn-success-hover-border;
+    box-shadow: 0 4px 8px rgba(82, 196, 26, 0.2);
+  }
+
+  &:active {
+    color: @btn-success-color;
+    background: @btn-success-active-bg;
+    border-color: @btn-success-active-border;
+    box-shadow: 0 2px 4px rgba(82, 196, 26, 0.15);
+  }
+
+  &.is-plain {
+    color: @success-color;
+    background: @btn-default-bg;
+    border-color: @success-color;
+    box-shadow: none;
+
+    &:hover,
+    &:focus {
+      color: @btn-success-color;
+      background: @success-color;
+      border-color: @success-color;
+    }
+
+    &:active {
+      color: @btn-success-color;
+      background: @success-color-active;
+      border-color: @success-color-active;
+    }
+  }
+}
+
+// 警告按钮
+.@{button-prefix}--warning {
+  color: @btn-warning-color;
+  background: @btn-warning-bg;
+  border-color: @btn-warning-border;
+  box-shadow: 0 2px 0 rgba(250, 173, 20, 0.1);
+
+  &:hover,
+  &:focus {
+    color: @btn-warning-color;
+    background: @btn-warning-hover-bg;
+    border-color: @btn-warning-hover-border;
+    box-shadow: 0 4px 8px rgba(250, 173, 20, 0.2);
+  }
+
+  &:active {
+    color: @btn-warning-color;
+    background: @btn-warning-active-bg;
+    border-color: @btn-warning-active-border;
+    box-shadow: 0 2px 4px rgba(250, 173, 20, 0.15);
+  }
+
+  &.is-plain {
+    color: @warning-color;
+    background: @btn-default-bg;
+    border-color: @warning-color;
+    box-shadow: none;
+
+    &:hover,
+    &:focus {
+      color: @btn-warning-color;
+      background: @warning-color;
+      border-color: @warning-color;
+    }
+
+    &:active {
+      color: @btn-warning-color;
+      background: @warning-color-active;
+      border-color: @warning-color-active;
+    }
+  }
+}
+
+// 危险按钮
+.@{button-prefix}--danger {
+  color: @btn-danger-color;
+  background: @btn-danger-bg;
+  border-color: @btn-danger-border;
+  box-shadow: 0 2px 0 rgba(255, 77, 79, 0.1);
+
+  &:hover,
+  &:focus {
+    color: @btn-danger-color;
+    background: @btn-danger-hover-bg;
+    border-color: @btn-danger-hover-border;
+    box-shadow: 0 4px 8px rgba(255, 77, 79, 0.2);
+  }
+
+  &:active {
+    color: @btn-danger-color;
+    background: @btn-danger-active-bg;
+    border-color: @btn-danger-active-border;
+    box-shadow: 0 2px 4px rgba(255, 77, 79, 0.15);
+  }
+
+  &.is-plain {
+    color: @danger-color;
+    background: @btn-default-bg;
+    border-color: @danger-color;
+    box-shadow: none;
+
+    &:hover,
+    &:focus {
+      color: @btn-danger-color;
+      background: @danger-color;
+      border-color: @danger-color;
+    }
+
+    &:active {
+      color: @btn-danger-color;
+      background: @danger-color-active;
+      border-color: @danger-color-active;
+    }
+  }
+}
+
+// 信息按钮
+.@{button-prefix}--info {
+  color: @btn-info-color;
+  background: @btn-info-bg;
+  border-color: @btn-info-border;
+  box-shadow: 0 2px 0 rgba(24, 144, 255, 0.1);
+
+  &:hover,
+  &:focus {
+    color: @btn-info-color;
+    background: @btn-info-hover-bg;
+    border-color: @btn-info-hover-border;
+    box-shadow: 0 4px 8px rgba(24, 144, 255, 0.2);
+  }
+
+  &:active {
+    color: @btn-info-color;
+    background: @btn-info-active-bg;
+    border-color: @btn-info-active-border;
+    box-shadow: 0 2px 4px rgba(24, 144, 255, 0.15);
+  }
+
+  &.is-plain {
+    color: @info-color;
+    background: @btn-default-bg;
+    border-color: @info-color;
+    box-shadow: none;
+
+    &:hover,
+    &:focus {
+      color: @btn-info-color;
+      background: @info-color;
+      border-color: @info-color;
+    }
+
+    &:active {
+      color: @btn-info-color;
+      background: @info-color-active;
+      border-color: @info-color-active;
+    }
+  }
+}
+
+// 文本按钮
+.@{button-prefix}--text {
+  color: @text-color;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+
+  &:hover,
+  &:focus {
+    color: @primary-color;
+    background: @btn-text-hover-bg;
+    border-color: transparent;
+  }
+
+  &:active {
+    color: @primary-color-active;
+    background: @btn-text-active-bg;
+    border-color: transparent;
+  }
+
+  &.is-disabled,
+  &:disabled {
+    color: @disabled-color !important;
+    background: transparent !important;
+    border-color: transparent !important;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: @disabled-color !important;
+      background: transparent !important;
+      border-color: transparent !important;
+    }
+  }
+}
+
+// ==================== 尺寸样式 ====================
+
+// 大尺寸按钮
+.@{button-prefix}--large {
+  height: @btn-height-lg;
+  padding: 0 @btn-padding-horizontal-lg;
+  font-size: @btn-font-size-lg;
+  border-radius: @btn-border-radius-lg;
+
+  .@{button-prefix}__loading-icon {
+    width: @btn-font-size-lg;
+    height: @btn-font-size-lg;
+  }
+
+  .@{button-prefix}__icon {
+    font-size: @btn-font-size-lg;
+  }
+}
+
+// 小尺寸按钮
+.@{button-prefix}--small {
+  height: @btn-height-sm;
+  padding: 0 @btn-padding-horizontal-sm;
+  font-size: @btn-font-size-sm;
+  border-radius: @btn-border-radius-sm;
+
+  .@{button-prefix}__loading-icon {
+    width: @btn-font-size-sm;
+    height: @btn-font-size-sm;
+  }
+
+  .@{button-prefix}__icon {
+    font-size: @btn-font-size-sm;
+  }
+}
+
+// ==================== 形状样式 ====================
+
+// 圆角按钮
+.@{button-prefix}.is-round {
+  border-radius: calc(@btn-height-base / 2);
+
+  &.@{button-prefix}--large {
+    border-radius: calc(@btn-height-lg / 2);
+  }
+
+  &.@{button-prefix}--small {
+    border-radius: calc(@btn-height-sm / 2);
+  }
+}
+
+// 圆形按钮
+.@{button-prefix}.is-circle {
+  width: @btn-circle-size;
+  height: @btn-circle-size;
+  padding: 0;
+  border-radius: 50%;
+  min-width: auto;
+
+  &.@{button-prefix}--large {
+    width: @btn-circle-size-lg;
+    height: @btn-circle-size-lg;
+  }
+
+  &.@{button-prefix}--small {
+    width: @btn-circle-size-sm;
+    height: @btn-circle-size-sm;
+  }
+
+  .@{button-prefix}__text {
+    display: none;
+  }
+
+  .@{button-prefix}__icon,
+  .@{button-prefix}__loading {
+    margin: 0;
+  }
+}
+
+// ==================== 特殊状态样式 ====================
+
+// 朴素按钮通用样式
+.@{button-prefix}.is-plain {
+  background: @btn-default-bg;
+
+  &:hover,
+  &:focus {
+    background: @btn-default-bg;
+  }
+
+  &.is-disabled,
+  &:disabled {
+    color: @disabled-color !important;
+    background: @btn-default-bg !important;
+    border-color: @disabled-border !important;
+  }
+}
+
+// 块级按钮
+.@{button-prefix}.is-block {
+  display: flex;
+  width: 100%;
+}
+
+// 按钮组中的按钮
+.@{button-prefix}-group {
+  display: inline-flex;
+  vertical-align: middle;
+
+  .@{button-prefix} {
+    position: relative;
+    margin-left: -1px;
+    border-radius: 0;
+
+    &:first-child {
+      margin-left: 0;
+      border-top-left-radius: @btn-border-radius-base;
+      border-bottom-left-radius: @btn-border-radius-base;
+    }
+
+    &:last-child {
+      border-top-right-radius: @btn-border-radius-base;
+      border-bottom-right-radius: @btn-border-radius-base;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      z-index: 2;
+    }
+  }
+}
+
+// ==================== 动画定义 ====================
+
+// 加载动画
+@keyframes button-loading-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// 按钮点击波纹效果
+.@{button-prefix}::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.6s,
+    height 0.6s;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.@{button-prefix}:active::after {
+  width: 200px;
+  height: 200px;
+  transition:
+    width 0s,
+    height 0s;
+}
+
+// 确保内容在波纹效果之上
+.@{button-prefix}__loading,
+.@{button-prefix}__icon,
+.@{button-prefix}__text {
+  position: relative;
+  z-index: 1;
+}

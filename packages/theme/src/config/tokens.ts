@@ -201,13 +201,13 @@ export interface BreakpointTokens {
  */
 export interface DesignTokens {
   namespace: string;
-  colors: ColorTokens;
-  fonts: FontTokens;
-  sizes: SizeTokens;
-  shadows: ShadowTokens;
-  animations: AnimationTokens;
-  zIndex: ZIndexTokens;
-  breakpoints: BreakpointTokens;
+  colors: Partial<ColorTokens>;
+  fonts: Partial<FontTokens>;
+  sizes: Partial<SizeTokens>;
+  shadows: Partial<ShadowTokens>;
+  animations: Partial<AnimationTokens>;
+  zIndex: Partial<ZIndexTokens>;
+  breakpoints: Partial<BreakpointTokens>;
 }
 
 /**
@@ -217,10 +217,10 @@ export const defaultTokens: DesignTokens = {
   namespace: 's',
   colors: {
     // 主色调
-    primary: '#1890ff',
-    primaryHover: '#40a9ff',
-    primaryActive: '#096dd9',
-    primaryOutline: 'rgba(24, 144, 255, 0.2)',
+    primary: '#18a058',
+    primaryHover: '#36b96a',
+    primaryActive: '#14874a',
+    primaryOutline: 'rgba(24, 160, 88, 0.2)',
 
     // 功能色
     success: '#52c41a',
@@ -265,9 +265,9 @@ export const defaultTokens: DesignTokens = {
     textInverse: '#ffffff',
 
     // 链接颜色
-    link: '#1890ff',
-    linkHover: '#40a9ff',
-    linkActive: '#096dd9',
+    link: '#18a058',
+    linkHover: '#36b96a',
+    linkActive: '#14874a',
 
     // 边框颜色
     border: '#d9d9d9',

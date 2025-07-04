@@ -153,11 +153,10 @@
 </template>
 
 <script setup lang="ts">
-import { SButton } from '@saofeng-design/components';
+import { SButton } from '@saofeng-design/sui';
 import { ref } from 'vue';
 
 import DemoNavigation from '../components/DemoNavigation.vue';
-import '../styles/demo-common.css';
 
 const message = ref('');
 
@@ -172,75 +171,3 @@ const handleLoadingClick = () => {
   showMessage('加载按钮');
 };
 </script>
-
-<style scoped>
-/* Button Demo 特定样式 */
-
-/* 暗色模式适配 */
-@media (prefers-color-scheme: dark) {
-  .demo-container {
-    background: #1a1a1a;
-  }
-
-  .demo-nav {
-    background: #2d2d2d;
-    border-bottom-color: #404040;
-  }
-
-  .demo-title {
-    color: #fff;
-  }
-
-  .demo-section {
-    background: #2d2d2d;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  }
-
-  .section-header h2,
-  .section-header h3 {
-    color: #fff;
-  }
-
-  .section-header p,
-  .section-description {
-    color: #ccc;
-  }
-
-  .demo-showcase {
-    background: #1a1a1a;
-    border-color: #404040;
-  }
-
-  .code-block {
-    background: #1a1a1a;
-    border-color: #404040;
-  }
-
-  .code-block pre {
-    color: #e1e4e8;
-  }
-}
-
-/* 响应式设计 */
-@media (max-width: 768px) {
-  .demo-nav {
-    padding: 12px 16px;
-  }
-
-  .demo-title {
-    font-size: 1.25rem;
-  }
-
-  .demo-content {
-    padding: 24px 16px;
-  }
-
-  .demo-section {
-    padding: 20px;
-  }
-
-  .button-group {
-    gap: 8px;
-  }
-}
-</style>

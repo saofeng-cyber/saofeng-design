@@ -1,0 +1,376 @@
+// 导入主题设计令牌
+@import '../common/tokens.less';
+
+// Alert 组件样式变量
+@alert-prefix: ~'@{namespace}-alert';
+
+// ==================== 基础变量 ====================
+
+// 边框
+@alert-border-width: @border-width-base;
+@alert-border-style: @border-style-base;
+
+// 圆角
+@alert-border-radius-base: @border-radius-base;
+@alert-border-radius-sm: @border-radius-sm;
+@alert-border-radius-lg: @border-radius-lg;
+
+// 字体
+@alert-font-size-base: @font-size-base;
+@alert-font-size-sm: @font-size-sm;
+@alert-font-size-lg: @font-size-lg;
+@alert-line-height: @line-height-base;
+
+// 内边距
+@alert-padding-vertical-base: @padding-sm;
+@alert-padding-horizontal-base: @padding-md;
+@alert-padding-vertical-sm: 4px;
+@alert-padding-horizontal-sm: @padding-sm;
+@alert-padding-vertical-lg: @padding-md;
+@alert-padding-horizontal-lg: @padding-lg;
+
+// 动画
+@alert-transition: all @animation-duration-base @ease-in-out;
+
+// 图标
+@alert-icon-size-base: 16px;
+@alert-icon-size-sm: 14px;
+@alert-icon-size-lg: 20px;
+@alert-icon-margin: @margin-sm;
+
+// 关闭按钮
+@alert-close-size: 16px;
+@alert-close-margin: @margin-sm;
+
+// ==================== 默认样式变量 ====================
+
+@alert-default-color: @text-color;
+@alert-default-bg: @white;
+@alert-default-border: @border-color;
+
+// ==================== 成功样式变量 ====================
+
+@alert-success-color: @success-color;
+@alert-success-bg: @success-color-lighter;
+@alert-success-border: @success-color-light;
+@alert-success-icon-color: @success-color;
+
+// ==================== 信息样式变量 ====================
+
+@alert-info-color: @info-color;
+@alert-info-bg: @info-color-lighter;
+@alert-info-border: @info-color-light;
+@alert-info-icon-color: @info-color;
+
+// ==================== 警告样式变量 ====================
+
+@alert-warning-color: @warning-color;
+@alert-warning-bg: @warning-color-lighter;
+@alert-warning-border: @warning-color-light;
+@alert-warning-icon-color: @warning-color;
+
+// ==================== 错误样式变量 ====================
+
+@alert-error-color: @danger-color;
+@alert-error-bg: @danger-color-lighter;
+@alert-error-border: @danger-color-light;
+@alert-error-icon-color: @danger-color;
+
+// ==================== 基础Alert样式 ====================
+
+.@{alert-prefix} {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  padding: @alert-padding-vertical-base @alert-padding-horizontal-base;
+  border: @alert-border-width @alert-border-style @alert-default-border;
+  border-radius: @alert-border-radius-base;
+  font-size: @alert-font-size-base;
+  line-height: @alert-line-height;
+  transition: @alert-transition;
+  background: @alert-default-bg;
+  color: @alert-default-color;
+  word-wrap: break-word;
+  overflow: hidden;
+
+  // ==================== 类型样式 ====================
+
+  // 成功类型
+  &--success {
+    background: @alert-success-bg;
+    border-color: @alert-success-border;
+    color: @alert-success-color;
+
+    .@{alert-prefix}__icon {
+      color: @alert-success-icon-color;
+    }
+  }
+
+  // 信息类型
+  &--info {
+    background: @alert-info-bg;
+    border-color: @alert-info-border;
+    color: @alert-info-color;
+
+    .@{alert-prefix}__icon {
+      color: @alert-info-icon-color;
+    }
+  }
+
+  // 警告类型
+  &--warning {
+    background: @alert-warning-bg;
+    border-color: @alert-warning-border;
+    color: @alert-warning-color;
+
+    .@{alert-prefix}__icon {
+      color: @alert-warning-icon-color;
+    }
+  }
+
+  // 错误类型
+  &--error {
+    background: @alert-error-bg;
+    border-color: @alert-error-border;
+    color: @alert-error-color;
+
+    .@{alert-prefix}__icon {
+      color: @alert-error-icon-color;
+    }
+  }
+
+  // ==================== 尺寸样式 ====================
+
+  // 小尺寸
+  &--small {
+    padding: @alert-padding-vertical-sm @alert-padding-horizontal-sm;
+    font-size: @alert-font-size-sm;
+
+    .@{alert-prefix}__icon {
+      font-size: @alert-icon-size-sm;
+    }
+
+    .@{alert-prefix}__close {
+      font-size: @alert-icon-size-sm;
+    }
+  }
+
+  // 大尺寸
+  &--large {
+    padding: @alert-padding-vertical-lg @alert-padding-horizontal-lg;
+    font-size: @alert-font-size-lg;
+
+    .@{alert-prefix}__icon {
+      font-size: @alert-icon-size-lg;
+    }
+
+    .@{alert-prefix}__close {
+      font-size: @alert-icon-size-lg;
+    }
+  }
+
+  // ==================== 内容元素样式 ====================
+
+  // 内容容器
+  &__content {
+    display: flex;
+    align-items: flex-start;
+    gap: @alert-icon-margin;
+    flex: 1;
+    min-width: 0;
+  }
+
+  // 图标
+  &__icon {
+    flex-shrink: 0;
+    font-size: @alert-icon-size-base;
+    line-height: 1.5;
+    margin-right: @alert-icon-margin;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  // 消息包装器
+  &__message-wrapper {
+    flex: 1;
+    min-width: 0;
+  }
+
+  // 消息内容
+  &__message {
+    font-size: inherit;
+    line-height: @alert-line-height;
+    color: inherit;
+    margin: 0;
+    font-weight: @font-weight-medium;
+  }
+
+  // 描述内容
+  &__description {
+    margin-top: 4px;
+    font-size: @alert-font-size-sm;
+    line-height: @alert-line-height;
+    opacity: 0.8;
+    color: inherit;
+  }
+
+  // 操作区域
+  &__action {
+    flex-shrink: 0;
+    margin-left: @alert-close-margin;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  // 关闭按钮
+  &__close {
+    flex-shrink: 0;
+    margin-left: @alert-close-margin;
+    padding: 0;
+    width: @alert-close-size;
+    height: @alert-close-size;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: @alert-close-size;
+    line-height: 1;
+    opacity: 0.6;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background: none;
+    color: inherit;
+    transition: opacity @animation-duration-base @ease-in-out;
+    border-radius: @border-radius-sm;
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+      background: rgba(0, 0, 0, 0.06);
+    }
+
+    &:active {
+      background: rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  // ==================== 特殊状态样式 ====================
+
+  // Banner 样式（顶部公告）
+  &.is-banner {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    padding: @alert-padding-vertical-lg ~'calc(@{alert-padding-horizontal-lg} * 2)';
+    margin-bottom: 0;
+  }
+
+  // 带描述的样式
+  &.is-with-description {
+    padding: @alert-padding-vertical-lg @alert-padding-horizontal-lg;
+    align-items: flex-start;
+
+    .@{alert-prefix}__icon {
+      font-size: @alert-icon-size-lg;
+      margin-top: 2px;
+    }
+
+    .@{alert-prefix}__message {
+      font-weight: @font-weight-semibold;
+      margin-bottom: 4px;
+    }
+  }
+
+  // 带图标的样式
+  &.is-with-icon {
+    .@{alert-prefix}__content {
+      align-items: flex-start;
+    }
+
+    .@{alert-prefix}__icon {
+      margin-top: 1px;
+    }
+  }
+
+  // 可关闭的样式
+  &.is-closable {
+    padding-right: ~'calc(@{alert-padding-horizontal-base} + @{alert-close-size} + @{alert-close-margin})';
+
+    &.@{alert-prefix}--small {
+      padding-right: ~'calc(@{alert-padding-horizontal-sm} + @{alert-close-size} + @{alert-close-margin})';
+    }
+
+    &.@{alert-prefix}--large {
+      padding-right: ~'calc(@{alert-padding-horizontal-lg} + @{alert-close-size} + @{alert-close-margin})';
+    }
+  }
+
+  // 无边框样式
+  &.is-borderless {
+    border: none;
+    background: transparent;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  // 圆角样式
+  &.is-round {
+    border-radius: ~'calc(@{alert-border-radius-base} * 2)';
+  }
+}
+
+// ==================== 动画效果 ====================
+
+// 淡入动画
+@keyframes alert-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// 淡出动画
+@keyframes alert-fade-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+// 应用动画到Alert组件
+.@{alert-prefix}.is-animated {
+  animation: alert-fade-in @animation-duration-base @ease-out;
+
+  &.is-closing {
+    animation: alert-fade-out @animation-duration-base @ease-in;
+  }
+}
+
+// ==================== 响应式设计 ====================
+
+// 小屏幕适配
+@media (max-width: @breakpoint-sm) {
+  .@{alert-prefix} {
+    &.is-banner {
+      padding-left: @alert-padding-horizontal-base;
+      padding-right: @alert-padding-horizontal-base;
+    }
+
+    &__message {
+      font-size: @alert-font-size-sm;
+    }
+
+    &__description {
+      font-size: 12px;
+    }
+  }
+}

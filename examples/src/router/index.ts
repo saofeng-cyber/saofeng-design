@@ -6,6 +6,7 @@ import AlertDemo from '../views/AlertDemo.vue';
 import BaseComponentsDemo from '../views/BaseComponentsDemo.vue';
 import ButtonDemo from '../views/ButtonDemo.vue';
 import Home from '../views/Home.vue';
+import ThemeCustomizer from '../views/ThemeCustomizer.vue';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -38,6 +39,14 @@ const routes: RouteRecordRaw[] = [
     component: BaseComponentsDemo,
     meta: {
       title: '基础组件',
+    },
+  },
+  {
+    path: '/theme-customizer',
+    name: 'ThemeCustomizer',
+    component: ThemeCustomizer,
+    meta: {
+      title: '主题定制器',
     },
   },
 ];

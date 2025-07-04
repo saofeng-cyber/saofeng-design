@@ -1,6 +1,6 @@
 // Saofeng Design 主题工具函数
 
-import type { DesignTokens } from './tokens';
+import type { DesignTokens } from '../config/tokens';
 
 /**
  * 颜色工具函数

@@ -38,7 +38,7 @@
       </slot>
     </span>
     <span
-      v-if="icon && !loading"
+      v-if="(icon || $slots.icon) && !loading"
       :class="ns.e('icon')"
     >
       <slot name="icon">{{ icon }}</slot>
@@ -73,5 +73,5 @@ const handleClick = (evt: MouseEvent) => {
 </script>
 
 <style lang="less" scoped>
-@import './button.less';
+@import url('@saofeng-design/theme/src/components/button.less');
 </style>

@@ -158,7 +158,7 @@
                 >使用文档</a
               >
               <a
-                href="#"
+                href="/theme-customizer"
                 class="footer-link"
                 >主题定制</a
               >
@@ -261,12 +261,21 @@ const components = ref([
     examples: 6,
     props: 8,
   },
+  {
+    name: '主题定制器',
+    description: '实时预览和自定义您的主题配色方案，支持颜色、字体、圆角等设置。',
+    path: '/theme-customizer',
+    category: '工具',
+    iconName: 'theme',
+    examples: 3,
+    props: 15,
+  },
 ]);
 
 // 统计数据
 const stats = ref([
   {
-    value: '2+',
+    value: '3+',
     label: '组件数量',
   },
   {
@@ -274,11 +283,11 @@ const stats = ref([
     label: 'TypeScript',
   },
   {
-    value: '14+',
+    value: '17+',
     label: '示例演示',
   },
   {
-    value: '20+',
+    value: '35+',
     label: '组件属性',
   },
 ]);

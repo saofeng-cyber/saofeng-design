@@ -127,7 +127,6 @@ const handleClick = (event: MouseEvent) => {
   emit('click', event);
 };
 </script>
-
 <style lang="less" scoped>
-@import './alert.less';
+@import url('@saofeng-design/theme/src/components/alert.less');
 </style>
