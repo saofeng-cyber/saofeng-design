@@ -536,12 +536,7 @@ const updateTheme = () => {
   });
 
   // 更新按钮颜色（包括状态颜色）
-  root.style.setProperty('--s-color-primary', generatedColors.primary);
-  root.style.setProperty('--s-color-primary-hover', generatedColors.primaryHover);
-  root.style.setProperty('--s-color-primary-active', generatedColors.primaryActive);
-  root.style.setProperty('--s-color-primary-hover-border', generatedColors.primaryBorder);
-  root.style.setProperty('--s-color-primary-border', generatedColors.primary);
-  root.style.setProperty('--s-color-primary-outline', generatedColors.primaryOutline);
+  root.style.setProperty('--s-color-primary-outline', generatedColors.primary);
 
   // 更新字体和圆角
   root.style.setProperty('--s-font-size-base', `${themeConfig.fontSize}px`);
@@ -590,7 +585,7 @@ onMounted(() => {
 <style scoped>
 .theme-customizer {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background: var(--s-color-background-base);
 }
 
 .container {
@@ -601,8 +596,8 @@ onMounted(() => {
 
 /* 头部样式 */
 .customizer-header {
-  background: white;
-  border-bottom: 1px solid #e2e8f0;
+  background: var(--s-color-background-base);
+  border-bottom: 1px solid var(--s-color-border-split);
   padding: 24px 0;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
@@ -617,7 +612,6 @@ onMounted(() => {
   font-size: 2rem;
   font-weight: 700;
   margin: 0 0 8px;
-  color: #1a202c;
 }
 
 .page-description {
@@ -645,16 +639,16 @@ onMounted(() => {
 
 /* 控制面板 */
 .control-panel {
-  background: white;
+  background-color: var(--s-color-background-base);
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--s-color-border-split);
   overflow: hidden;
 }
 
 .panel-section {
   padding: 24px;
-  border-bottom: 1px solid #f1f5f9;
+  border-bottom: 1px solid var(--s-color-border-split);
 }
 
 .panel-section:last-child {
@@ -665,17 +659,16 @@ onMounted(() => {
   font-size: 1.1rem;
   font-weight: 600;
   margin: 0 0 16px;
-  color: #1a202c;
 }
 
 .section-description {
   font-size: 0.9rem;
-  color: #64748b;
   margin: 0 0 16px;
   padding: 8px 12px;
-  background: #f8fafc;
   border-radius: 6px;
-  border-left: 3px solid #3b82f6;
+  border: 1px solid var(--s-color-border-split);
+  border-left-width: 3px solid var(--s-color-primary);
+  background-color: var(--s-color-background-base);
 }
 
 /* 颜色控制 */
@@ -694,7 +687,6 @@ onMounted(() => {
 .color-item label {
   font-size: 0.9rem;
   font-weight: 500;
-  color: #374151;
 }
 
 .color-input-wrapper {
@@ -710,15 +702,17 @@ onMounted(() => {
   border-radius: 8px;
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: none;
 }
 
 .color-text {
   flex: 1;
   padding: 8px 12px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--s-color-border-split);
   border-radius: 6px;
   font-size: 0.9rem;
   font-family: monospace;
+  background: none;
 }
 
 /* 字体控制 */
@@ -737,7 +731,6 @@ onMounted(() => {
 .font-item label {
   font-size: 0.9rem;
   font-weight: 500;
-  color: #374151;
 }
 
 .range-input-wrapper {
@@ -750,7 +743,6 @@ onMounted(() => {
   flex: 1;
   height: 6px;
   border-radius: 3px;
-  background: #e2e8f0;
   outline: none;
   cursor: pointer;
 }
@@ -758,7 +750,6 @@ onMounted(() => {
 .range-value {
   font-size: 0.9rem;
   font-weight: 500;
-  color: #64748b;
   min-width: 40px;
   text-align: right;
 }
@@ -775,20 +766,19 @@ onMounted(() => {
   align-items: center;
   gap: 12px;
   padding: 12px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--s-color-border-split);
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .preset-item:hover {
-  border-color: #cbd5e1;
-  background: #f8fafc;
+  border-color: var(--s-color-primary-outline);
 }
 
 .preset-item.active {
-  border-color: var(--s-color-primary, #1890ff);
-  background: rgba(24, 144, 255, 0.05);
+  border-color: var(--s-color-primary-outline);
+  background: var(--s-color-background-light);
 }
 
 .preset-colors {
@@ -800,21 +790,20 @@ onMounted(() => {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--s-color-border-split);
 }
 
 .preset-name {
   font-size: 0.9rem;
   font-weight: 500;
-  color: #374151;
 }
 
 /* 预览区域 */
 .preview-area {
-  background: white;
+  background-color: var(--s-color-background-base);
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--s-color-border-split);
   overflow: hidden;
 }
 
@@ -823,14 +812,13 @@ onMounted(() => {
   justify-content: space-between;
   align-items: center;
   padding: 24px;
-  border-bottom: 1px solid #f1f5f9;
+  border-bottom: 1px solid var(--s-color-border-split);
 }
 
 .preview-header h3 {
   font-size: 1.2rem;
   font-weight: 600;
   margin: 0;
-  color: #1a202c;
 }
 
 .preview-tabs {
@@ -846,14 +834,12 @@ onMounted(() => {
   font-size: 1.1rem;
   font-weight: 600;
   margin: 0 0 16px;
-  color: #1a202c;
 }
 
 .component-demo {
   padding: 24px;
-  background: #f8fafc;
   border-radius: 8px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--s-color-border-split);
 }
 
 .demo-row {

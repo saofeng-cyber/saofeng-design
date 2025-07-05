@@ -61,8 +61,9 @@ const closeMenu = () => {
 
 <style scoped>
 .navigation {
-  background: white;
-  border-bottom: 1px solid #e2e8f0;
+  background: var(--s-color-background-base);
+
+  border-bottom: 1px solid var(--s-color-border-split);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;

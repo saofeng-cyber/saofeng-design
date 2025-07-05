@@ -71,7 +71,3 @@ const handleClick = (evt: MouseEvent) => {
   emit('click', evt);
 };
 </script>
-
-<style lang="less" scoped>
-@import url('@saofeng-design/theme/src/components/button.less');
-</style>

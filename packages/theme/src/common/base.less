@@ -1,7 +1,7 @@
 // ===== 基础样式重置 =====
 
 // 导入设计令牌
-@import './tokens.less';
+@import url('./tokens.less');
 
 // 全局盒模型
 *,
@@ -33,7 +33,7 @@ body {
   font-size: @font-size-base;
   font-family: @font-family;
   line-height: @line-height-base;
-  background: var(--s-color-background-base);
+  background: var(--s-color-background-dark);
   transition: background-color @animation-duration-base @ease-in-out;
 }
 
