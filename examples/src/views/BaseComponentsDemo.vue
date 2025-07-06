@@ -7,45 +7,6 @@
 
     <!-- 内容区域 -->
     <main class="demo-content">
-      <!-- BaseInteractive 组件演示 -->
-      <section class="demo-section">
-        <div class="section-header">
-          <h2>BaseInteractive 基础交互</h2>
-        </div>
-        <p class="section-description">提供统一的交互元素样式和行为</p>
-
-        <div class="demo-showcase">
-          <div class="interactive-group">
-            <s-base-interactive variant="default"> 默认交互 </s-base-interactive>
-
-            <s-base-interactive variant="primary"> 主要交互 </s-base-interactive>
-
-            <s-base-interactive
-              variant="success"
-              size="small"
-            >
-              成功交互
-            </s-base-interactive>
-
-            <s-base-interactive variant="text"> 文本交互 </s-base-interactive>
-
-            <s-base-interactive
-              variant="link"
-              tag="a"
-            >
-              链接交互
-            </s-base-interactive>
-
-            <s-base-interactive
-              variant="primary"
-              loading
-            >
-              加载中
-            </s-base-interactive>
-          </div>
-        </div>
-      </section>
-
       <!-- 组合使用演示 -->
       <section class="demo-section">
         <div class="section-header">
@@ -115,7 +76,7 @@ import { SButton, SAlert } from '@saofeng-design/sui';
 <style lang="less" scoped>
 .base-components-demo {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%);
   padding: 2rem;
 }
 
@@ -188,7 +149,6 @@ import { SButton, SAlert } from '@saofeng-design/sui';
       h3 {
         font-size: 1.2rem;
         font-weight: 500;
-        color: #34495e;
         margin-bottom: 1rem;
       }
     }

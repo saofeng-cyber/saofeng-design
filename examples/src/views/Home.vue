@@ -270,6 +270,15 @@ const components = ref([
     examples: 3,
     props: 15,
   },
+  {
+    name: '基础组件',
+    description: '探索我们精心设计的基础组件，包括按钮、图标、输入框等。',
+    path: '/base-components',
+    category: '基础组件',
+    iconName: 'base',
+    examples: 10,
+    props: 20,
+  },
 ]);
 
 // 统计数据

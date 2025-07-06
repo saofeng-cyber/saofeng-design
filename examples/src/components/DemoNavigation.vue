@@ -158,20 +158,4 @@ const goBack = () => {
     font-size: 12px;
   }
 }
-
-/* 暗色模式适配 */
-@media (prefers-color-scheme: dark) {
-  .demo-nav {
-    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
-    border-bottom-color: rgba(16, 185, 129, 0.2);
-  }
-
-  .demo-title {
-    color: #10b981;
-  }
-
-  .demo-subtitle {
-    color: #9ca3af;
-  }
-}
 </style>
