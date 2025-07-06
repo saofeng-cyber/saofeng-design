@@ -91,6 +91,140 @@
   --vp-c-border: #334155;
   --vp-c-divider: #1e293b;
   --vp-c-gutter: #0f172a;
+
+  /* 同步主题包的暗色模式变量 */
+  --s-color-primary: #18a058;
+  --s-color-primary-hover: #36b96a;
+  --s-color-primary-active: #14874a;
+  --s-color-primary-outline: rgba(24, 160, 88, 0.3);
+  --s-color-primary-light: rgba(24, 160, 88, 0.15);
+  --s-color-primary-lighter: rgba(24, 160, 88, 0.08);
+
+  /* 功能色 - 暗色模式 */
+  --s-color-success: #52c41a;
+  --s-color-success-hover: #73d13d;
+  --s-color-success-active: #389e0d;
+  --s-color-warning: #faad14;
+  --s-color-warning-hover: #ffc53d;
+  --s-color-warning-active: #d48806;
+  --s-color-danger: #ff4d4f;
+  --s-color-danger-hover: #ff7875;
+  --s-color-danger-active: #d9363e;
+  --s-color-info: #1890ff;
+  --s-color-info-hover: #40a9ff;
+  --s-color-info-active: #096dd9;
+
+  /* 文本颜色 - 暗色模式 */
+  --s-color-text-primary: rgba(255, 255, 255, 0.88);
+  --s-color-text-secondary: rgba(255, 255, 255, 0.65);
+  --s-color-text-tertiary: rgba(255, 255, 255, 0.45);
+  --s-color-text-quaternary: rgba(255, 255, 255, 0.25);
+  --s-color-text-inverse: #000000;
+
+  /* 背景颜色 - 暗色模式 */
+  --s-color-background-light: #262626;
+  --s-color-background-base: #1f1f1f;
+  --s-color-background-dark: #141414;
+
+  /* 边框颜色 - 暗色模式 */
+  --s-color-border: #434343;
+  --s-color-border-split: #262626;
+  --s-color-border-inverse: #000000;
+
+  /* 中性色 - 暗色模式 */
+  --s-color-white: #000000;
+  --s-color-black: #ffffff;
+  --s-color-gray-50: #1f1f1f;
+  --s-color-gray-100: #262626;
+  --s-color-gray-200: #434343;
+  --s-color-gray-300: #595959;
+  --s-color-gray-400: #8c8c8c;
+  --s-color-gray-500: #bfbfbf;
+  --s-color-gray-600: #d9d9d9;
+  --s-color-gray-700: #f0f0f0;
+  --s-color-gray-800: #f5f5f5;
+  --s-color-gray-900: #fafafa;
+
+  /* 禁用状态颜色 - 暗色模式 */
+  --s-color-disabled: rgba(255, 255, 255, 0.25);
+  --s-color-disabled-bg: #262626;
+  --s-color-disabled-border: #434343;
+}
+
+/* ===== 暗色模式文字颜色修复 ===== */
+.dark .VPDoc .content,
+.dark .VPDoc p,
+.dark .VPDoc li,
+.dark .VPDoc td,
+.dark .VPDoc .custom-block p {
+  color: var(--vp-c-text-1) !important;
+}
+
+.dark .VPDoc h1,
+.dark .VPDoc h2,
+.dark .VPDoc h3,
+.dark .VPDoc h4,
+.dark .VPDoc h5,
+.dark .VPDoc h6 {
+  color: var(--vp-c-text-1) !important;
+}
+
+.dark .VPSidebarItem .text {
+  color: var(--vp-c-text-2) !important;
+}
+
+.dark .VPNavBarMenuLink {
+  color: var(--vp-c-text-1) !important;
+}
+
+.dark .VPFeature .title {
+  color: var(--vp-c-text-1) !important;
+}
+
+.dark .VPFeature .details {
+  color: var(--vp-c-text-2) !important;
+}
+
+/* 确保所有文本元素在暗色模式下正确显示 */
+.dark body,
+.dark .VPDoc,
+.dark .VPDoc .content,
+.dark .VPDoc .vp-doc,
+.dark .VPDoc .vp-doc p,
+.dark .VPDoc .vp-doc li,
+.dark .VPDoc .vp-doc span,
+.dark .VPDoc .vp-doc div,
+.dark .VPDoc .vp-doc td,
+.dark .VPDoc .vp-doc th,
+.dark .VPDoc .vp-doc blockquote,
+.dark .VPDoc .vp-doc .custom-block p,
+.dark .VPDoc .vp-doc .custom-block li,
+.dark .VPDoc .vp-doc .custom-block span {
+  color: var(--vp-c-text-1) !important;
+}
+
+/* 暗色模式下的代码块文字 */
+.dark .vp-code-group .tabs label,
+.dark div[class*='language-'] code,
+.dark div[class*='language-'] pre {
+  color: var(--vp-c-text-1) !important;
+}
+
+/* 暗色模式下的表格文字 */
+.dark .vp-doc table,
+.dark .vp-doc th,
+.dark .vp-doc td {
+  color: var(--vp-c-text-1) !important;
+}
+
+/* 暗色模式下的链接文字 */
+.dark .vp-doc a {
+  color: var(--vp-c-brand-1) !important;
+}
+
+/* 暗色模式下的自定义容器文字 */
+.dark .custom-block .custom-block-title {
+  color: inherit !important;
 }
 
 /* ===== 导航栏样式 ===== */
@@ -98,6 +232,10 @@
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--vp-c-border);
+}
+
+.dark .VPNav {
+  background: rgba(15, 23, 42, 0.95);
 }
 
 .VPNavBar {
@@ -375,6 +513,77 @@ div[class*='language-'] .lang {
 /* ===== 首页特殊样式 ===== */
 .VPHome {
   background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+}
+
+/* 暗色模式下的首页背景 */
+.dark .VPHome {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+/* 暗色模式下的Hero区域背景 */
+.dark .VPHero {
+  background: transparent;
+}
+
+/* 暗色模式下的Hero图片背景 */
+.dark .VPHero .image-bg {
+  background-image: linear-gradient(-45deg, rgba(52, 211, 153, 0.3) 30%, rgba(16, 185, 129, 0.2));
+  opacity: 0.15;
+}
+
+/* 暗色模式下的特色卡片背景 */
+.dark .VPFeature {
+  background: var(--vp-c-bg-alt);
+  border-color: var(--vp-c-border);
+}
+
+/* 暗色模式下的按钮悬停效果 */
+.dark .VPButton.brand::before {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+/* 暗色模式下的发光按钮效果 */
+.dark .glow-button::after {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+/* 暗色模式下的整体页面背景 */
+.dark body,
+.dark .Layout {
+  background: var(--vp-c-bg) !important;
+}
+
+/* 暗色模式下的主内容区域背景 */
+.dark .VPContent,
+.dark .VPDoc {
+  background: var(--vp-c-bg) !important;
+}
+
+/* 暗色模式下的侧边栏背景 */
+.dark .VPSidebar {
+  background: var(--vp-c-bg-alt) !important;
+}
+
+/* 暗色模式下的代码块背景 */
+.dark div[class*='language-'] {
+  background: var(--vp-c-bg-elv) !important;
+}
+
+/* 暗色模式下的自定义容器背景 */
+.dark .custom-block.tip {
+  background: rgba(34, 197, 94, 0.1) !important;
+}
+
+.dark .custom-block.warning {
+  background: rgba(245, 158, 11, 0.1) !important;
+}
+
+.dark .custom-block.danger {
+  background: rgba(239, 68, 68, 0.1) !important;
+}
+
+.dark .custom-block.info {
+  background: rgba(59, 130, 246, 0.1) !important;
 }
 
 .VPHero {
@@ -762,6 +971,11 @@ div[class*='language-'] .lang {
   overflow: hidden;
 }
 
+/* 暗色模式下的渐变背景卡片 */
+.dark .gradient-card {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(15, 23, 42, 0.95) 100%);
+}
+
 .gradient-card::before {
   content: '';
   position: absolute;
@@ -974,6 +1188,13 @@ div[class*='language-'] .lang {
   padding: 2rem;
   margin: 2rem 0;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* 暗色模式下的磨砂玻璃效果 */
+.dark .glass-effect {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 /* 霓虹灯效果 */
