@@ -83,7 +83,21 @@ try {
     console.log('');
     console.log('✅ 构建完成！');
 
+    // 构建样式文件
+    console.log('');
+    console.log('🎨 构建样式文件...');
+    try {
+      execSync('node scripts/build-style.js', {
+        stdio: 'inherit',
+        cwd: resolve(__dirname, '..'),
+      });
+    } catch (styleError) {
+      console.error('❌ 样式文件构建失败:', styleError.message);
+      process.exit(1);
+    }
+
     // 显示输出文件信息
+    console.log('');
     console.log('📁 输出文件:');
     outputDirs.forEach(dir => {
       const dirPath = resolve(__dirname, '..', dir);

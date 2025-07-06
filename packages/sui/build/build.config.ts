@@ -19,9 +19,9 @@ export const BUILD_TARGETS = ['es2020', 'edge88', 'firefox78', 'chrome87', 'safa
 
 // 输出目录配置
 export const OUTPUT_DIRS = {
-  cjs: 'dist/lib',
-  es: 'dist/es',
-  types: 'dist/typings',
+  cjs: 'lib',
+  es: 'es',
+  types: 'typings',
 } as const;
 
 // 文件命名模式
@@ -35,8 +35,12 @@ export const FILE_PATTERNS = {
     es: '[name]/[name]-[hash].js',
   },
   asset: {
-    cjs: 'assets/[name].[ext]',
-    es: 'assets/[name].[ext]',
+    cjs: '[name].[ext]',
+    es: '[name].[ext]',
+  },
+  css: {
+    cjs: '[name].css',
+    es: '[name].css',
   },
 } as const;
 

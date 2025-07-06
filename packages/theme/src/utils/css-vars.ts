@@ -229,11 +229,6 @@ export class ThemeSwitcher {
 }
 
 /**
- * 默认主题切换器实例
- */
-export const themeSwitcher = new ThemeSwitcher();
-
-/**
  * 主题变化事件类型
  */
 export interface ThemeChangeEvent extends CustomEvent {

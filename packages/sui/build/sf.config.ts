@@ -86,8 +86,8 @@ export default defineConfig({
     // Chunk 大小警告限制
     chunkSizeWarningLimit: BUILD_OPTIMIZATION.chunkSizeWarningLimit,
 
-    // 启用 CSS 代码分割
-    cssCodeSplit: true,
+    // 禁用 CSS 代码分割，确保样式文件正确导出
+    cssCodeSplit: false,
 
     // 构建目标 - 支持现代浏览器
     target: [...BUILD_TARGETS],
@@ -96,7 +96,14 @@ export default defineConfig({
       // 外部依赖
       external: (id: string) => {
         // 更灵活的外部依赖判断
-        return EXTERNAL_DEPENDENCIES.some(dep => id === dep || id.startsWith(`${dep}/`));
+        if (EXTERNAL_DEPENDENCIES.some(dep => id === dep || id.startsWith(`${dep}/`))) {
+          return true;
+        }
+        // 将主题包的CSS文件标记为外部依赖，避免打包进组件库
+        if (id.includes('@saofeng-design/theme') && id.endsWith('.css')) {
+          return true;
+        }
+        return false;
       },
 
       // 输出配置
@@ -115,7 +122,6 @@ export default defineConfig({
     lib: {
       entry: fileURLToPath(new URL('../index.ts', import.meta.url)),
       name: 'SfUI',
-      formats: ['cjs', 'es'],
     },
 
     // 源码映射配置 - 根据环境选择
