@@ -32,7 +32,7 @@ pnpm add @saofeng-design/components
 ```typescript
 import { createApp } from 'vue';
 import SfUI from '@saofeng-design/components';
-import '@saofeng-design/components/dist/es/index.css';
+import '@saofeng-design/components/dist/index.css';
 
 const app = createApp(App);
 app.use(SfUI);
@@ -43,7 +43,7 @@ app.mount('#app');
 
 ```typescript
 import { SButton, SAlert } from '@saofeng-design/components';
-import '@saofeng-design/components/dist/es/index.css';
+import '@saofeng-design/components/dist/index.css';
 
 export default {
   components: {
@@ -56,10 +56,14 @@ export default {
 ### 样式引入
 
 ```typescript
-// 引入完整样式
-import '@saofeng-design/components/dist/es/index.css';
+// 引入完整样式（推荐）
+import '@saofeng-design/components/dist/index.css';
 
-// 或者引入主题样式
+// 或者使用样式工具函数
+import { getStylePath } from '@saofeng-design/components/style';
+const stylePath = getStylePath('dist'); // 'dist' | 'es' | 'lib'
+
+// 或者直接引入主题样式
 import '@saofeng-design/theme/dist/index.css';
 ```
 
@@ -289,8 +293,18 @@ import SfUI from '@saofeng-design/components';
 确保正确引入样式文件：
 
 ```typescript
-// 在 main.ts 中引入
-import '@saofeng-design/components/dist/es/index.css';
+// 在 main.ts 中引入（推荐）
+import '@saofeng-design/components/dist/index.css';
+
+// 或者根据构建格式选择
+import '@saofeng-design/components/es/index.css'; // ES 模块
+import '@saofeng-design/components/lib/index.css'; // CommonJS 模块
+
+// 使用样式工具函数
+import { getStylePath, importStyle } from '@saofeng-design/components/style';
+const stylePath = getStylePath('dist');
+// 或者动态导入
+importStyle('dist');
 ```
 
 ### 3. TypeScript 支持

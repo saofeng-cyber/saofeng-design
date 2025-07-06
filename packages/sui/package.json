@@ -1,6 +1,6 @@
 {
   "name": "@saofeng-design/components",
-  "version": "1.0.0",
+  "version": "1.0.1-alpha.1",
   "description": "",
   "type": "module",
   "main": "lib/index.cjs",
@@ -19,19 +19,17 @@
     "dist",
     "es",
     "lib",
-    "style.ts",
     "typings",
+    "scripts",
     "package.json",
     "README.md"
   ],
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.com/"
+    "registry": "https://registry.npmjs.com/",
+    "tag": "alpha"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "gradient-string": "^3.0.0"
-  }
+  "license": "ISC"
 }

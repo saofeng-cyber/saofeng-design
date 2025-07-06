@@ -108,7 +108,7 @@ module.exports = {
     // 代码复杂度
     complexity: ['warn', { max: 15 }],
     'max-depth': ['warn', 4],
-    'max-lines-per-function': ['warn', { max: 100 }],
+    'max-lines-per-function': ['warn', { max: 120 }],
 
     // Import 规则
     'import/order': [
